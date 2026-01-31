@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bhaskar Educational Store | ISO 9001:2015 Certified | Precision Instruments Since 2006</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ISO 9001:2015 Certified manufacturer of precision mathematical instruments. Premium geometry boxes, compasses, scales for schools & professionals since 2006.">
+    <meta name="keywords" content="geometry box, mathematical instruments, compass, scale, school supplies, stationery India, engineering drawing tools">
+    <meta name="author" content="Bhaskar Educational Store">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100vh;
+        }
+
+        /* SPLASH SCREEN */
+        #splash-screen {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease;
+        }
+
+        .splash-logo-container {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: floatLogo 3s ease-in-out infinite;
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.4);
+            margin-bottom: 2rem;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        /* GLASS EFFECTS */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ENHANCED CARDS */
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 32px 64px -12px rgba(37, 99, 235, 0.25);
+        }
+
+        /* 3D IMAGE CONTAINER */
+        .img-3d-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            height: 200px;
+        }
+
+        .img-3d-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .product-card:hover .img-3d-container img {
+            transform: scale(1.08);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* GRADIENT TEXT */
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* PAGE TRANSITIONS */
+        .page-content {
+            display: none;
+            animation: fadeIn 0.6s ease;
+            padding-bottom: 7rem;
+            min-height: calc(100vh - 80px);
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* FLOATING ELEMENTS */
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* INSTANT QUOTE BADGE */
+        .instant-quote-badge {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            z-index: 90;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 800;
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: pulseWhatsApp 2s infinite;
+            z-index: 100;
+        }
+
+        @keyframes pulseWhatsApp {
+            0%, 100% { box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 12px 32px 12px rgba(37, 211, 102, 0.6); }
+        }
+
+        /* BACK TO TOP */
+        .back-to-top-enhanced {
+            position: fixed;
+            bottom: 180px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
+            z-index: 90;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .back-to-top-enhanced.visible {
+            opacity: 1;
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast-notification {
+            position: fixed;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            font-weight: 600;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(20px);
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* PRODUCT LABELS */
+        .product-label {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 20;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.65rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            animation: labelPulse 2s infinite;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes labelPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .label-new { background: #10b981; color: white; }
+        .label-bestseller { background: #ef4444; color: white; }
+        .label-premium { background: #f59e0b; color: white; }
+        .label-limited { background: #8b5cf6; color: white; }
+
+        /* CART BADGE */
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4444;
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.6rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* MODALS */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-card {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            animation: modalSlide 0.5s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalSlide {
+            from { transform: translateY(40px); }
+            to { transform: translateY(0); }
+        }
+
+        /* STATS CARD */
+        .stats-card-3d {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .stats-card-3d:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+            border-color: #2563eb;
+        }
+
+        /* FEATURE ICON */
+        .feature-icon-3d {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.3);
+            transition: all 0.4s ease;
+            margin: 0 auto 1rem;
+        }
+
+        /* TESTIMONIAL CARD */
+        .testimonial-card-3d {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .testimonial-card-3d:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+            border-color: #2563eb;
+        }
+
+        /* MANUFACTURING CARD */
+        .manufacturing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .manufacturing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+            border-color: #f59e0b;
+        }
+
+        /* GUIDE CARD */
+        .guide-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+        }
+
+        /* PRODUCT DETAIL CARD */
+        .product-detail-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(226, 232, 240, 0.8);
+        }
+
+        /* NAV INDICATOR */
+        .nav-indicator {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-active .nav-indicator {
+            opacity: 1;
+            transform: translateX(-50%) scale(1.2);
+        }
+
+        /* MAP CONTAINER */
+        .map-container {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            height: 300px;
+            margin: 2rem 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* PROCESS TIMELINE */
+        .process-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #2563eb, #8b5cf6);
+        }
+
+        .process-step {
+            position: relative;
+            padding-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2563eb;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        /* QUALITY BADGES */
+        .quality-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .product-card:hover {
+                transform: translateY(-8px);
+            }
+            
+            .instant-quote-badge {
+                bottom: 100px;
+                right: 15px;
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .page-content {
+                padding-bottom: 8rem;
+            }
+            
+            .product-detail-card {
+                padding: 1.5rem;
+            }
+            
+            .back-to-top-enhanced {
+                bottom: 160px;
+            }
+        }
+
+        /* LOADING SKELETON */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 12px;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- INSTANT QUOTE BADGE -->
+    <div class="instant-quote-badge" onclick="openWhatsApp('instant_quote')">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        <span class="hidden sm:inline">Instant Quote</span>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <div class="back-to-top-enhanced" onclick="scrollToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center justify-center gap-3">
+            <i class="fa-solid fa-check-circle text-green-400"></i>
+            <span id="toast-message">Product added to inquiry list</span>
+        </div>
+    </div>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
+        <div class="splash-logo-container">
+            <img src="bes logo cut.png" alt="BES Logo" class="w-20 h-20 object-contain">
+        </div>
+        <h1 class="text-white font-black tracking-tighter text-5xl mb-4 gradient-text">BHASKAR</h1>
+        <p class="text-blue-300 text-sm uppercase tracking-[0.4em] font-bold mb-12">EDUCATIONAL STORE</p>
+        
+        <div class="flex gap-3">
+            <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce floating-element"></div>
+            <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce floating-element" style="animation-delay: 0.2s"></div>
+            <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce floating-element" style="animation-delay: 0.4s"></div>
+        </div>
+        
+        <div class="absolute bottom-8 text-center">
+            <p class="text-blue-400 text-xs font-medium">ISO 9001:2015 Certified • Since 2006</p>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="glass-header sticky top-0 z-50 px-5 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4" onclick="navigateTo('home')" style="cursor: pointer;">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center overflow-hidden border-2 border-white/20 bg-gradient-to-br from-blue-600 to-blue-800 shadow-xl relative">
+                <img src="bes logo cut.png" alt="BES Logo" class="w-10 h-10 object-contain">
+            </div>
+            <div>
+                <h1 class="font-black text-lg tracking-tight leading-none text-slate-900 uppercase">Bhaskar</h1>
+                <p class="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1 flex items-center gap-1">
+                    <i class="fa-solid fa-certificate text-[8px]"></i>
+                    Since 2006
+                </p>
+            </div>
+        </div>
+        
+        <div class="flex gap-3">
+            <button id="search-toggle" class="text-slate-500 w-12 h-12 rounded-2xl flex items-center justify-center bg-slate-50/80 border border-slate-200/50 hover:bg-white transition-all duration-300 hover:scale-105">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            
+            <button onclick="openModal('pdf-modal')" class="text-slate-500 w-12 h-12 rounded-2xl flex items-center justify-center bg-slate-50/80 border border-slate-200/50 hover:bg-white transition-all duration-300 hover:scale-105 relative">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></span>
+                <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+            </button>
+            
+            <button onclick="openModal('cart-modal')" class="text-slate-500 w-12 h-12 rounded-2xl flex items-center justify-center bg-slate-50/80 border border-slate-200/50 hover:bg-white transition-all duration-300 hover:scale-105 relative">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="header-cart-badge" class="cart-badge">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SEARCH BAR -->
+    <div id="search-bar" class="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg shadow-2xl p-4 hidden" style="z-index: 1000;">
+        <div class="relative max-w-md mx-auto">
+            <div class="relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="search-input" placeholder="Search products..." 
+                       class="w-full p-4 pl-12 rounded-2xl border-2 border-slate-200 bg-white focus:outline-none focus:border-blue-500 transition-all duration-300">
+                <button onclick="closeSearch()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div id="search-results" class="absolute top-full left-0 right-0 bg-white shadow-2xl rounded-2xl mt-2 max-h-96 overflow-y-auto hidden"></div>
+        </div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HERO SECTION -->
+            <section class="relative rounded-[3rem] overflow-hidden min-h-[60vh] flex items-center">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900"></div>
+                
+                <div class="relative z-10 w-full py-12 px-4 sm:px-8 text-center">
+                    <span class="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm font-bold uppercase tracking-widest mb-6 border border-white/20">
+                        ISO 9001:2015 Certified
+                    </span>
+                    
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                        Precision That <span class="gradient-text">Elevates</span><br>Every Calculation
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-blue-100/90 max-w-2xl mx-auto mb-10">
+                        India's premier manufacturer of mathematical instruments since 2006.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                        <button onclick="navigateTo('products')" class="px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-700 rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            Explore Store
+                        </button>
+                        <button onclick="openWhatsApp('hero_section')" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            Get Instant Quote
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                        <div class="stats-card-3d">
+                            <div class="text-2xl sm:text-3xl font-black text-blue-600 mb-2" id="years-counter">0</div>
+                            <div class="text-xs sm:text-sm font-semibold text-slate-600">Years of Excellence</div>
+                        </div>
+                        <div class="stats-card-3d">
+                            <div class="text-2xl sm:text-3xl font-black text-blue-600 mb-2" id="schools-counter">0</div>
+                            <div class="text-xs sm:text-sm font-semibold text-slate-600">Schools Trust Us</div>
+                        </div>
+                        <div class="stats-card-3d">
+                            <div class="text-2xl sm:text-3xl font-black text-blue-600 mb-2">100%</div>
+                            <div class="text-xs sm:text-sm font-semibold text-slate-600">Quality Checks</div>
+                        </div>
+                        <div class="stats-card-3d">
+                            <div class="text-2xl sm:text-3xl font-black text-blue-600 mb-2">0.01mm</div>
+                            <div class="text-xs sm:text-sm font-semibold text-slate-600">Precision</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FEATURED PRODUCTS -->
+            <section class="space-y-10">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Featured <span class="gradient-text">Collections</span></h2>
+                    <p class="text-slate-600">Our premium mathematical instruments</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="featured-products">
+                    <!-- Products loaded by JavaScript -->
+                </div>
+            </section>
+
+            <!-- WHY CHOOSE US -->
+            <section class="space-y-10">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Why <span class="gradient-text">Choose</span> Bhaskar?</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="stats-card-3d">
+                        <div class="feature-icon-3d">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-3">ISO Certified Quality</h4>
+                        <p class="text-slate-600 text-sm">Every instrument undergoes 100+ quality checks to ensure perfection</p>
+                    </div>
+                    
+                    <div class="stats-card-3d">
+                        <div class="feature-icon-3d">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-3">Pan-India Delivery</h4>
+                        <p class="text-slate-600 text-sm">Free shipping across India with priority delivery for institutions</p>
+                    </div>
+                    
+                    <div class="stats-card-3d">
+                        <div class="feature-icon-3d">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-3">Dedicated Support</h4>
+                        <p class="text-slate-600 text-sm">24/7 customer support with dedicated account managers</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INSTITUTIONAL SOLUTIONS -->
+            <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-6 sm:p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Institutional <span class="gradient-text">Solutions</span></h2>
+                    <p class="text-slate-600">Customized solutions for schools, colleges, and educational institutions</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div class="testimonial-card-3d">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">School Bulk Packs</h4>
+                        <p class="text-slate-600 text-sm">Customized geometry boxes with school branding and bulk pricing</p>
+                        <div class="mt-4">
+                            <span class="text-blue-600 font-bold text-sm">Up to 40% OFF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card-3d">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">College Kits</h4>
+                        <p class="text-slate-600 text-sm">Professional-grade instruments for engineering and architecture students</p>
+                        <div class="mt-4">
+                            <span class="text-blue-600 font-bold text-sm">Premium Quality</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button onclick="openModal('school-registration-modal')" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                        Register Your Institution
+                    </button>
+                </div>
+            </section>
+
+            <!-- CUSTOM QUOTE CTA -->
+            <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200">
+                <div class="text-center">
+                    <div class="feature-icon-3d">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Need <span class="gradient-text">Custom</span> Pricing?</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto mb-8">
+                        Get personalized quotes based on your specific requirements and quantity needs
+                    </p>
+                    <button onclick="openModal('custom-quote-modal')" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                        Request Custom Quote
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MANUFACTURING (MFG) PAGE -->
+    <div id="company" class="page-content">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HERO SECTION -->
+            <section class="relative rounded-[3rem] overflow-hidden min-h-[40vh] flex items-center">
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800"></div>
+                
+                <div class="relative z-10 w-full py-12 px-4 sm:px-8 text-center">
+                    <h1 class="text-3xl sm:text-4xl font-black text-white mb-6">
+                        Manufacturing <span class="gradient-text">Excellence</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto">
+                        ISO 9001:2015 certified manufacturing facility with 18 years of precision engineering expertise
+                    </p>
+                </div>
+            </section>
+
+            <!-- MANUFACTURING PROCESS -->
+            <section class="space-y-10">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Our <span class="gradient-text">Manufacturing</span> Process</h2>
+                    <p class="text-slate-600">Precision engineering from raw materials to finished products</p>
+                </div>
+                
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Material Selection</h4>
+                        <p class="text-slate-600">We use only Grade-A materials including high-carbon steel, shatterproof polymers, and corrosion-resistant alloys</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Precision Machining</h4>
+                        <p class="text-slate-600">Computer-controlled machining ensures 0.01mm tolerance on all critical components</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Quality Inspection</h4>
+                        <p class="text-slate-600">Every instrument undergoes 12-point quality check including alignment, finish, and durability tests</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Assembly & Packaging</h4>
+                        <p class="text-slate-600">Hand-assembled by skilled craftsmen and packaged in protective, branded packaging</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MANUFACTURED PRODUCTS -->
+            <section class="space-y-10">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Our <span class="gradient-text">Manufacturing</span> Portfolio</h2>
+                    <p class="text-slate-600">Specialized products engineered in our ISO-certified facility</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="manufacturing-products">
+                    <!-- Products loaded by JavaScript -->
+                </div>
+            </section>
+
+            <!-- QUALITY CERTIFICATIONS -->
+            <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-6 sm:p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Quality <span class="gradient-text">Certifications</span></h2>
+                    <p class="text-slate-600">Our commitment to quality and excellence</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="quality-badge">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-slate-900">ISO 9001:2015 Certified</h4>
+                            <p class="text-slate-600 text-sm">International quality management system certification</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quality-badge">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white">
+                            <i class="fa-solid fa-flag"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-slate-900">Make in India</h4>
+                            <p class="text-slate-600 text-sm">Proudly manufactured in India since 2006</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quality-badge">
+                        <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center text-white">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-slate-900">MSME Registered</h4>
+                            <p class="text-slate-600 text-sm">Government recognized micro, small & medium enterprise</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MANUFACTURING FACILITY -->
+            <section class="space-y-6">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Our <span class="gradient-text">Manufacturing</span> Facility</h2>
+                </div>
+                
+                <div class="manufacturing-card">
+                    <h4 class="text-lg font-black text-slate-900 mb-4">State-of-the-Art Infrastructure</h4>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>5000+ sq.ft. manufacturing unit in Delhi</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Computer-controlled precision machinery</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Dedicated R&D department for product innovation</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Quality control laboratory with testing equipment</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Environmentally controlled assembly area</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="products" class="page-content">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HEADER -->
+            <div class="text-center">
+                <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">Product <span class="gradient-text">Gallery</span></h1>
+                <p class="text-slate-600">Browse our complete collection of premium mathematical instruments</p>
+                <div class="mt-4">
+                    <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">
+                        <span id="product-count">15</span> Products Available
+                    </span>
+                </div>
+            </div>
+
+            <!-- CATEGORY FILTERS -->
+            <div class="flex flex-wrap gap-3 justify-center" id="category-filters">
+                <!-- Categories loaded by JavaScript -->
+            </div>
+
+            <!-- PRODUCTS GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="all-products">
+                <!-- Products loaded by JavaScript -->
+            </div>
+
+            <!-- BULK ORDER CTA -->
+            <section class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-6 sm:p-8 text-center text-white">
+                <div class="feature-icon-3d mx-auto mb-6" style="background: white; color: #2563eb;">
+                    <i class="fa-solid fa-boxes-packing"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-black mb-4">Bulk Order <span class="text-amber-300">Discounts</span></h2>
+                <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
+                    Ordering for your school, college, or institution? Get special bulk pricing and custom branding options.
+                </p>
+                <button onclick="openModal('school-registration-modal')" class="px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-700 rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    Request Bulk Pricing
+                </button>
+            </section>
+        </main>
+    </div>
+
+    <!-- GUIDE (ABOUT) PAGE -->
+    <div id="about" class="page-content">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HERO SECTION -->
+            <section class="relative rounded-[3rem] overflow-hidden min-h-[40vh] flex items-center">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900"></div>
+                
+                <div class="relative z-10 w-full py-12 px-4 sm:px-8 text-center">
+                    <h1 class="text-3xl sm:text-4xl font-black text-white mb-6">
+                        Bhaskar <span class="gradient-text">Guide</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-blue-100 max-w-3xl mx-auto">
+                        Everything you need to know about our products, ordering process, and support
+                    </p>
+                </div>
+            </section>
+
+            <!-- ABOUT US -->
+            <section class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Our <span class="gradient-text">Story</span></h2>
+                </div>
+                
+                <div class="guide-card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black text-slate-900">Our Journey Since 2006</h3>
+                            <p class="text-slate-500 text-sm">Established in 2006</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 leading-relaxed">
+                        Bhaskar Educational Store was founded in 2006 with a simple mission: to provide students across India with high-quality, affordable mathematical instruments that enhance their learning experience. What started as a small workshop in Delhi has grown into a leading manufacturer serving over 500 schools nationwide.
+                    </p>
+                    
+                    <p class="text-slate-600 leading-relaxed mt-4">
+                        Our commitment to quality earned us the ISO 9001:2015 certification, and our dedication to innovation has led to the development of proprietary technologies like our self-centering compass mechanism. Today, we're proud to be India's trusted name in mathematical instruments.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-3 mt-6">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold">ISO CERTIFIED</span>
+                        <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold">MADE IN INDIA</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">18+ YEARS EXPERIENCE</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-bold">500+ SCHOOLS</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ORDERING PROCESS -->
+            <section class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Ordering <span class="gradient-text">Process</span></h2>
+                    <p class="text-slate-600">Simple steps to get your mathematical instruments</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="guide-card text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-xl font-black mx-auto mb-4">
+                            1
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Browse Products</h4>
+                        <p class="text-slate-600 text-sm">Explore our catalog or download the PDF catalog for complete specifications</p>
+                    </div>
+                    
+                    <div class="guide-card text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-xl font-black mx-auto mb-4">
+                            2
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Add to Inquiry</h4>
+                        <p class="text-slate-600 text-sm">Select products and specify quantities for a customized quote</p>
+                    </div>
+                    
+                    <div class="guide-card text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-xl font-black mx-auto mb-4">
+                            3
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Get Quote</h4>
+                        <p class="text-slate-600 text-sm">Receive instant pricing via WhatsApp or email</p>
+                    </div>
+                    
+                    <div class="guide-card text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-xl font-black mx-auto mb-4">
+                            4
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Delivery</h4>
+                        <p class="text-slate-600 text-sm">Track your shipment and receive products at your doorstep</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRODUCT CARE GUIDE -->
+            <section class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Product <span class="gradient-text">Care</span> Guide</h2>
+                    <p class="text-slate-600">Tips to maintain your mathematical instruments</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="guide-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-ruler text-blue-500"></i>
+                            <h4 class="text-lg font-black text-slate-900">Scale Maintenance</h4>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span>Clean with dry cloth after use</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span>Store in protective case when not in use</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span>Avoid exposing to extreme temperatures</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-circle-compass text-blue-500"></i>
+                            <h4 class="text-lg font-black text-slate-900">Compass Care</h4>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span>Keep pivot point lubricated</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span>Store with protective cap on needle</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span>Adjust tension screw as needed</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ SECTION -->
+            <section class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Frequently <span class="gradient-text">Asked</span> Questions</h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="guide-card">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">What makes Bhaskar instruments different?</h4>
+                        <p class="text-slate-600 text-sm">Our instruments feature proprietary self-centering technology, industrial-grade materials, and undergo 100+ quality checks. We're ISO 9001:2015 certified and have 18+ years of manufacturing expertise.</p>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Do you offer custom branding for schools?</h4>
+                        <p class="text-slate-600 text-sm">Yes! We offer custom branding with school logos, names, and colors. Minimum order quantity applies for custom branding.</p>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">What is your delivery time?</h4>
+                        <p class="text-slate-600 text-sm">Standard orders: 3-5 business days. Bulk orders: 5-7 business days. Express delivery available for urgent requirements.</p>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Do you offer warranty?</h4>
+                        <p class="text-slate-600 text-sm">All our products come with a 1-year manufacturer warranty against defects in materials and workmanship.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT INFO IN GUIDE -->
+            <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-6 sm:p-8">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Need <span class="gradient-text">Help</span>?</h2>
+                    <p class="text-slate-600">Our support team is here to assist you</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-6 text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <h4 class="font-black text-slate-900 mb-2">Call Us</h4>
+                        <p class="text-blue-600 font-bold">+91 8882990486</p>
+                        <p class="text-slate-500 text-sm mt-2">9 AM - 8 PM, Mon-Sat</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h4 class="font-black text-slate-900 mb-2">WhatsApp</h4>
+                        <p class="text-green-600 font-bold">Instant Support</p>
+                        <p class="text-slate-500 text-sm mt-2">Click the floating button</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-content">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HERO SECTION -->
+            <section class="relative rounded-[3rem] overflow-hidden min-h-[40vh] flex items-center">
+                <div class="absolute inset-0 bg-gradient-to-br from-green-700 to-emerald-800"></div>
+                
+                <div class="relative z-10 w-full py-12 px-4 sm:px-8 text-center">
+                    <h1 class="text-3xl sm:text-4xl font-black text-white mb-6">
+                        Contact <span class="text-amber-300">Us</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-emerald-100 max-w-3xl mx-auto">
+                        Get in touch for inquiries, support, or custom requirements
+                    </p>
+                </div>
+            </section>
+
+            <!-- CONTACT METHODS -->
+            <section class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Contact <span class="gradient-text">Methods</span></h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <!-- Phone -->
+                    <div class="guide-card text-center hover:border-blue-500 transition-all duration-300 cursor-pointer" onclick="window.location.href='tel:+918882990486'">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Phone Call</h4>
+                        <p class="text-blue-600 font-bold text-lg">+91 8882990486</p>
+                        <p class="text-slate-500 text-sm mt-2">Direct business line</p>
+                        <div class="mt-4">
+                            <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Tap to Call</span>
+                        </div>
+                    </div>
+                    
+                    <!-- WhatsApp -->
+                    <div class="guide-card text-center hover:border-green-500 transition-all duration-300 cursor-pointer" onclick="openWhatsApp('contact_page')">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">WhatsApp</h4>
+                        <p class="text-green-600 font-bold text-lg">Instant Support</p>
+                        <p class="text-slate-500 text-sm mt-2">Quick quotes & support</p>
+                        <div class="mt-4">
+                            <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">Tap to Chat</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="guide-card text-center hover:border-purple-500 transition-all duration-300 cursor-pointer" onclick="window.location.href='mailto:samdk2006@gmail.com'">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Email</h4>
+                        <p class="text-purple-600 font-bold text-sm">samdk2006@gmail.com</p>
+                        <p class="text-slate-500 text-sm mt-2">Detailed inquiries</p>
+                        <div class="mt-4">
+                            <span class="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full">Tap to Email</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VISIT OUR STORE -->
+            <section class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Visit Our <span class="gradient-text">Store</span></h2>
+                </div>
+                
+                <div class="guide-card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center text-white">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black text-slate-900">Store Location</h3>
+                            <p class="text-slate-500 text-sm">Manufacturing Unit & Showroom</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-2">Address</h4>
+                            <p class="text-slate-600">
+                                176/8, Padam Nagar, Gali No 1<br>
+                                Kishan Ganj, Delhi - 110007<br>
+                                India
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-2">Business Hours</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-slate-600 font-medium">Monday - Saturday</p>
+                                    <p class="text-slate-700 font-bold">9:00 AM - 8:00 PM</p>
+                                </div>
+                                <div>
+                                    <p class="text-slate-600 font-medium">Sunday</p>
+                                    <p class="text-slate-700 font-bold">10:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <a href="https://maps.google.com/maps?q=176/8,+Padam+Nagar,+Gali+No+1,Kishan+Ganj" 
+                           target="_blank" 
+                           class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-colors">
+                            <i class="fa-solid fa-map"></i>
+                            Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Map -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.589192059311!2d77.22217731508368!3d28.670654982404134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5a8a5f5a5b%3A0x1c1d1d1d1d1d1d1d!2sPadam%20Nagar%2C%20Kishan%20Ganj%2C%20Delhi%2C%20110007!5e0!3m2!1sen!2sin!4v1644567890123!5m2!1sen!2sin" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- QUICK LINKS -->
+            <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-6 sm:p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Quick <span class="gradient-text">Links</span></h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <button onclick="openModal('pdf-modal')" class="guide-card text-center hover:bg-white transition-all duration-300">
+                        <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-3">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900">Catalog PDF</h4>
+                    </button>
+                    
+                    <button onclick="openModal('custom-quote-modal')" class="guide-card text-center hover:bg-white transition-all duration-300">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-3">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900">Custom Quote</h4>
+                    </button>
+                    
+                    <button onclick="openModal('school-registration-modal')" class="guide-card text-center hover:bg-white transition-all duration-300">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-3">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900">School Registration</h4>
+                    </button>
+                    
+                    <button onclick="navigateTo('products')" class="guide-card text-center hover:bg-white transition-all duration-300">
+                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-3">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900">View Products</h4>
+                    </button>
+                </div>
+            </section>
+
+            <!-- CONTACT FORM -->
+            <section class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Send <span class="gradient-text">Message</span></h2>
+                    <p class="text-slate-600">Prefer email? Send us your inquiry</p>
+                </div>
+                
+                <div class="guide-card">
+                    <form id="contact-form" onsubmit="submitContactForm(event)">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Your Name</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-slate-300 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 border border-slate-300 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Phone Number</label>
+                                <input type="tel" required class="w-full px-4 py-3 border border-slate-300 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 border border-slate-300 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Tell us about your requirements..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold hover:shadow-xl transition-all duration-300">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="glass-nav fixed bottom-4 left-1/2 -translate-x-1/2 w-[95%] max-w-md rounded-[2.5rem] p-3 flex justify-around items-center z-50">
+        <button onclick="navigateTo('home')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn relative p-2" id="nav-home">
+            <i class="fa-solid fa-house-chimney text-lg"></i>
+            <span class="text-[9px] font-black uppercase">Home</span>
+            <div class="nav-indicator"></div>
+        </button>
+        <button onclick="navigateTo('company')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn relative p-2" id="nav-company">
+            <i class="fa-solid fa-industry text-lg"></i>
+            <span class="text-[9px] font-black uppercase">MFG</span>
+            <div class="nav-indicator"></div>
+        </button>
+        <button onclick="navigateTo('products')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn relative p-2" id="nav-products">
+            <i class="fa-solid fa-grid-2 text-lg"></i>
+            <span class="text-[9px] font-black uppercase">Store</span>
+            <div class="nav-indicator"></div>
+        </button>
+        <button onclick="navigateTo('about')" class="flex flex-col items-center gap=1 text-slate-400 nav-btn relative p-2" id="nav-about">
+            <i class="fa-solid fa-circle-question text-lg"></i>
+            <span class="text-[9px] font-black uppercase">Guide</span>
+            <div class="nav-indicator"></div>
+        </button>
+        <button onclick="navigateTo('contact')" class="flex flex-col items-center gap=1 text-slate-400 nav-btn relative p-2" id="nav-contact">
+            <i class="fa-solid fa-phone-flip text-lg"></i>
+            <span class="text-[9px] font-black uppercase">Call</span>
+            <div class="nav-indicator"></div>
+        </button>
+    </nav>
+
+    <!-- MODALS -->
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal-overlay" onclick="closeModal('cart-modal')">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="p-6 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <div>
+                            <h3 class="font-extrabold text-lg">Your Inquiry List</h3>
+                            <p class="text-sm opacity-90"><span id="cart-count">0</span> items</p>
+                        </div>
+                    </div>
+                    <button onclick="closeModal('cart-modal')" class="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div id="cart-items" class="space-y-4 max-h-96 overflow-y-auto">
+                    <!-- Cart items loaded dynamically -->
+                </div>
+                <div id="empty-cart" class="text-center py-8">
+                    <i class="fa-solid fa-cart-shopping text-4xl text-slate-300 mb-4"></i>
+                    <p class="text-slate-500 font-bold">Your inquiry list is empty</p>
+                    <p class="text-slate-400 text-sm mt-1">Add products to get a custom quote</p>
+                </div>
+                <div class="mt-6 space-y-4">
+                    <button onclick="sendInquiryViaWhatsApp()" class="w-full py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Get Quote on WhatsApp
+                    </button>
+                    <button onclick="clearCart()" class="w-full py-3 border border-slate-300 text-slate-700 rounded-2xl font-bold text-sm hover:bg-slate-50 transition-colors">
+                        Clear All Items
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- School Registration Modal -->
+    <div id="school-registration-modal" class="modal-overlay" onclick="closeModal('school-registration-modal')">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="p-6 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-school text-xl"></i>
+                        <h3 class="font-extrabold text-lg">School Partnership</h3>
+                    </div>
+                    <button onclick="closeModal('school-registration-modal')" class="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-6 p-4 bg-blue-50 rounded-2xl border border-blue-200">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fa-solid fa-crown text-amber-500"></i>
+                        <span class="font-bold text-blue-800">Special Benefits</span>
+                    </div>
+                    <ul class="text-sm text-blue-700 space-y-1">
+                        <li>• Up to 40% discount on bulk orders</li>
+                        <li>• Free customization with school logo</li>
+                        <li>• Priority delivery and support</li>
+                        <li>• Dedicated account manager</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <input type="text" id="school-name" placeholder="School Name" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="text" id="school-city" placeholder="City" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="tel" id="school-phone" placeholder="Contact Number" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="email" id="school-email" placeholder="Email Address" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <select id="student-strength" class="w-full p-3 border border-slate-300 rounded-xl">
+                        <option value="">Select Student Strength</option>
+                        <option value="<500">Less than 500</option>
+                        <option value="500-1000">500-1000</option>
+                        <option value="1000-2000">1000-2000</option>
+                        <option value=">2000">More than 2000</option>
+                    </select>
+                    <button onclick="submitSchoolRegistration()" class="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl font-bold hover:shadow-lg transition-all">
+                        Register School
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Quote Modal -->
+    <div id="custom-quote-modal" class="modal-overlay" onclick="closeModal('custom-quote-modal')">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="p-6 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-file-signature text-xl"></i>
+                        <h3 class="font-extrabold text-lg">Custom Quote</h3>
+                    </div>
+                    <button onclick="closeModal('custom-quote-modal')" class="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-6 p-4 bg-purple-50 rounded-2xl border border-purple-200">
+                    <p class="text-sm text-purple-700">Tell us your specific requirements for a personalized quote</p>
+                </div>
+                <div class="space-y-4">
+                    <textarea id="custom-requirements" placeholder="Describe your requirements, quantity needed, special features..." class="w-full p-3 border border-slate-300 rounded-xl h-32"></textarea>
+                    <input type="text" id="custom-name" placeholder="Your Name" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="tel" id="custom-phone" placeholder="Contact Number" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="email" id="custom-email" placeholder="Email Address" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <button onclick="submitCustomQuote()" class="w-full py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl font-bold hover:shadow-lg transition-all">
+                        Submit Quote Request
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Modal -->
+    <div id="pdf-modal" class="modal-overlay" onclick="closeModal('pdf-modal')">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="p-6 bg-gradient-to-r from-red-600 to-red-700 text-white">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-file-pdf text-xl"></i>
+                        <h3 class="font-extrabold text-lg">Digital Catalog</h3>
+                    </div>
+                    <button onclick="closeModal('pdf-modal')" class="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6 text-center">
+                <div class="w-24 h-24 bg-gradient-to-br from-red-100 to-red-200 rounded-3xl flex items-center justify-center text-red-600 text-4xl mx-auto mb-6">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+                <h4 class="text-xl font-black text-slate-900 mb-2">Bhaskar Educational Store Catalog 2026</h4>
+                <p class="text-slate-600 mb-6">Complete technical specifications and product details</p>
+                <div class="space-y-3">
+                    <button onclick="downloadPDF()" class="w-full py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-2xl font-bold hover:shadow-lg transition-all">
+                        <i class="fa-solid fa-download mr-2"></i> Download PDF
+                    </button>
+                    <button onclick="closeModal('pdf-modal')" class="w-full py-3 border border-slate-300 text-slate-700 rounded-2xl font-bold">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // COMPLETE PRODUCT DATA
+        const PRODUCT_DATA = {
+            featured: [
+                { 
+                    id: "p1", 
+                    name: "Bhaskar All Black", 
+                    img: "all black main.jpeg", 
+                    desc: "Premium matte black finish with metal components",
+                    tags: ["bestseller", "premium"],
+                    category: "premium",
+                    price: "Custom Quote"
+                },
+                { 
+                    id: "p2", 
+                    name: "Sonic X Kids", 
+                    img: "sonicx.jpeg", 
+                    desc: "Kids edition with vibrant character graphics",
+                    tags: ["new", "kids"],
+                    category: "kids",
+                    price: "Custom Quote"
+                },
+                { 
+                    id: "p3", 
+                    name: "Gold Series", 
+                    img: "gold.png", 
+                    desc: "Limited edition gold-plated premium series",
+                    tags: ["premium", "limited"],
+                    category: "premium",
+                    price: "Custom Quote"
+                }
+            ],
+            
+            allProducts: [
+                { id: "p1", name: "Bhaskar All Black", img: "all black main.jpeg", category: "premium", desc: "Matte black premium series" },
+                { id: "p2", name: "Sonic X Kids", img: "sonicx.jpeg", category: "kids", desc: "Character series for kids" },
+                { id: "p3", name: "Classic Study", img: "study main.jpeg", category: "standard", desc: "Original heritage series" },
+                { id: "p4", name: "Complete Kit", img: "kit.png", category: "professional", desc: "Professional drawing set" },
+                { id: "p5", name: "Gold Series", img: "gold.png", category: "premium", desc: "Limited gold edition" },
+                { id: "p6", name: "Maxima Pro", img: "mamafa.jpeg", category: "professional", desc: "Industrial precision tools" },
+                { id: "p7", name: "Deluxe Edition", img: "DELUCE.jpeg", category: "premium", desc: "Complete geometry box" },
+                { id: "p8", name: "Ben 10 Edition", img: "ben main.jpeg", category: "kids", desc: "Official character series" },
+                { id: "p9", name: "Bhaskar Junior", img: "junior3.jpeg", category: "kids", desc: "Entry level for young students" },
+                { id: "p10", name: "Dhoom Series", img: "dhoom.png", category: "standard", desc: "Fast-track geometry set" },
+               
+            ],
+            
+            manufacturingProducts: [
+                { 
+                    id: "m1", 
+                    name: "Industrial Compass Pro", 
+                    img: "ac par.png", 
+                    desc: "Chromium-plated steel construction with high-precision pivot point",
+                    features: ["Self-centering", "0.01mm tolerance", "Industrial grade"]
+                },
+                { 
+                    id: "m2", 
+                    name: "Bhaskar Precision Scale", 
+                    img: "scale.png", 
+                    desc: "2.0mm thick shatterproof polymer with laser-etched markings",
+                    features: ["Shatterproof", "Laser-etched", "Anti-glare"]
+                },
+                { 
+                    id: "m3", 
+                    name: "Master Draftsman Box", 
+                    img: "ds.png", 
+                    desc: "Complete professional drawing set with shock-resistant case",
+                    features: ["10 tools", "Shock-resistant", "Professional grade"]
+                },
+                { 
+                    id: "m4", 
+                    name: "Professional Drawing Set", 
+                    img: "set dr.png", 
+                    desc: "Engineering and architectural drawing kit with specialized tools",
+                    features: ["Complete set", "Architectural tools", "Premium case"]
+                }
+            ],
+            
+            categories: [
+                { id: "all", name: "All Products", icon: "fa-grid-2" },
+                { id: "premium", name: "Premium", icon: "fa-crown" },
+                { id: "kids", name: "Kids Edition", icon: "fa-child" },
+                { id: "professional", name: "Professional", icon: "fa-ruler-combined" },
+                { id: "standard", name: "Standard", icon: "fa-box" }
+            ]
+        };
+
+        // STATE MANAGEMENT
+        let cart = JSON.parse(localStorage.getItem('bes_cart')) || [];
+        let currentPage = 'home';
+        let currentFilter = 'all';
+
+        // INITIALIZATION
+        window.onload = function() {
+            // Hide splash screen
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 800);
+            }, 1500);
+
+            // Initialize counters
+            animateCounter('years-counter', 18, 2000);
+            animateCounter('schools-counter', 500, 2500);
+
+            // Load content
+            loadFeaturedProducts();
+            loadAllProducts();
+            loadManufacturingProducts();
+            loadCategoryFilters();
+
+            // Update cart
+            updateCartUI();
+
+            // Set active nav
+            setActiveNav('home');
+
+            // Initialize event listeners
+            initEventListeners();
+
+            // Update product count
+            document.getElementById('product-count').textContent = PRODUCT_DATA.allProducts.length;
+        };
+
+        // ANIMATE COUNTERS
+        function animateCounter(elementId, target, duration) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // NAVIGATION
+        function navigateTo(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                currentPage = pageId;
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Update navigation
+                setActiveNav(pageId);
+                
+                // Close search if open
+                closeSearch();
+            }
+        }
+
+        function setActiveNav(pageId) {
+            // Remove active class from all nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('nav-active');
+            });
+            
+            // Add active class to current nav button
+            const navBtn = document.getElementById(`nav-${pageId}`);
+            if (navBtn) {
+                navBtn.classList.add('nav-active');
+            }
+        }
+
+        // CONTENT LOADING FUNCTIONS
+        function loadFeaturedProducts() {
+            const container = document.getElementById('featured-products');
+            if (!container) return;
+            
+            container.innerHTML = PRODUCT_DATA.featured.map(product => `
+                <div class="product-card" onclick="viewProduct('${product.id}')">
+                    <div class="relative">
+                        <div class="img-3d-container">
+                            <img src="${product.img}" alt="${product.name}" class="w-full h-full object-contain p-4">
+                        </div>
+                        ${product.tags.includes('bestseller') ? '<span class="product-label label-bestseller">Best Seller</span>' : ''}
+                        ${product.tags.includes('new') ? '<span class="product-label label-new">New</span>' : ''}
+                        ${product.tags.includes('premium') ? '<span class="product-label label-premium">Premium</span>' : ''}
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">${product.name}</h3>
+                        <p class="text-slate-600 text-sm mb-4">${product.desc}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold">${product.price}</span>
+                            <button onclick="event.stopPropagation(); addToCart('${product.id}', '${product.name}')" 
+                                    class="px-4 py-2 bg-blue-600 text-white rounded-xl font-bold text-sm hover:bg-blue-700 transition-colors">
+                                Add to Inquiry
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadAllProducts() {
+            const container = document.getElementById('all-products');
+            if (!container) return;
+            
+            const filteredProducts = currentFilter === 'all' 
+                ? PRODUCT_DATA.allProducts
+                : PRODUCT_DATA.allProducts.filter(p => p.category === currentFilter);
+            
+            container.innerHTML = filteredProducts.map(product => `
+                <div class="product-card" onclick="viewProduct('${product.id}')">
+                    <div class="img-3d-container">
+                        <img src="${product.img}" alt="${product.name}" class="w-full h-full object-contain p-4">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">${product.name}</h3>
+                        <p class="text-slate-600 text-xs mb-3">${product.desc}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold text-sm">Custom Quote</span>
+                            <button onclick="event.stopPropagation(); addToCart('${product.id}', '${product.name}')" 
+                                    class="px-3 py-1.5 bg-blue-600 text-white rounded-lg font-bold text-xs hover:bg-blue-700 transition-colors">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadManufacturingProducts() {
+            const container = document.getElementById('manufacturing-products');
+            if (!container) return;
+            
+            container.innerHTML = PRODUCT_DATA.manufacturingProducts.map(product => `
+                <div class="manufacturing-card">
+                    <div class="img-3d-container mb-4">
+                        <img src="${product.img}" alt="${product.name}" class="w-full h-full object-contain p-4">
+                    </div>
+                    <h4 class="text-lg font-black text-slate-900 mb-2">${product.name}</h4>
+                    <p class="text-slate-600 text-sm mb-4">${product.desc}</p>
+                    <div class="space-y-2">
+                        ${product.features.map(feature => `
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-green-500 text-xs"></i>
+                                <span class="text-slate-700 text-sm">${feature}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadCategoryFilters() {
+            const container = document.getElementById('category-filters');
+            if (!container) return;
+            
+            container.innerHTML = PRODUCT_DATA.categories.map(category => `
+                <button onclick="filterProducts('${category.id}')" 
+                        class="px-4 py-2 rounded-full border-2 ${currentFilter === category.id ? 'bg-blue-600 border-blue-600 text-white' : 'border-slate-300 text-slate-700'} font-bold text-sm transition-all duration-300">
+                    <i class="fa-solid ${category.icon} mr-2"></i>
+                    ${category.name}
+                </button>
+            `).join('');
+        }
+
+        function filterProducts(categoryId) {
+            currentFilter = categoryId;
+            loadAllProducts();
+            loadCategoryFilters();
+        }
+
+        // CART FUNCTIONS
+        function addToCart(productId, productName) {
+            // Check if product exists
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity = (existingItem.quantity || 1) + 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    quantity: 1,
+                    addedAt: new Date().toISOString()
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('bes_cart', JSON.stringify(cart));
+            
+            // Update UI
+            updateCartUI();
+            
+            // Show toast
+            showToast(`${productName} added to inquiry list`);
+        }
+
+        function updateCartUI() {
+            // Update badge
+            const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            document.getElementById('header-cart-badge').textContent = totalItems;
+            document.getElementById('cart-count').textContent = totalItems;
+            
+            // Update cart modal
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyCart = document.getElementById('empty-cart');
+            
+            if (cart.length === 0) {
+                emptyCart.style.display = 'block';
+                cartItemsContainer.innerHTML = '';
+            } else {
+                emptyCart.style.display = 'none';
+                cartItemsContainer.innerHTML = cart.map((item, index) => `
+                    <div class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold">${item.name}</h4>
+                            <p class="text-sm text-slate-500">Quantity: ${item.quantity || 1}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="updateQuantity(${index}, -1)" class="w-8 h-8 rounded-lg border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-slate-100">
+                                <i class="fa-solid fa-minus text-xs"></i>
+                            </button>
+                            <span class="font-bold">${item.quantity || 1}</span>
+                            <button onclick="updateQuantity(${index}, 1)" class="w-8 h-8 rounded-lg border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-slate-100">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                            </button>
+                            <button onclick="removeFromCart(${index})" class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-red-600 hover:bg-red-100 ml-2">
+                                <i class="fa-solid fa-trash text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function updateQuantity(index, change) {
+            if (!cart[index]) return;
+            
+            cart[index].quantity = (cart[index].quantity || 1) + change;
+            if (cart[index].quantity < 1) {
+                cart[index].quantity = 1;
+            }
+            localStorage.setItem('bes_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('bes_cart', JSON.stringify(cart));
+            updateCartUI();
+            showToast('Item removed from inquiry list');
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('bes_cart', JSON.stringify(cart));
+            updateCartUI();
+            showToast('Inquiry list cleared');
+        }
+
+        function sendInquiryViaWhatsApp() {
+            if (cart.length === 0) {
+                showToast('Add products to inquiry list first');
+                return;
+            }
+            
+            let message = "Hello Bhaskar Educational Store,\n\nI'm interested in the following products:\n\n";
+            cart.forEach(item => {
+                message += `• ${item.name} (Quantity: ${item.quantity || 1})\n`;
+            });
+            message += "\nPlease provide pricing and availability for these items.";
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/918882990486?text=${encodedMessage}`, '_blank');
+            
+            closeModal('cart-modal');
+        }
+
+        // MODAL FUNCTIONS
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function closeAllModals() {
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+
+        // TOAST NOTIFICATION
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // WHATSAPP FUNCTION
+        function openWhatsApp(context) {
+            let message = "Hello Bhaskar Educational Store! ";
+            if (context === 'instant_quote') {
+                message += "I'd like to get an instant quote for your mathematical instruments.";
+            } else if (context === 'hero_section') {
+                message += "I'm interested in your premium mathematical instruments.";
+            } else if (context === 'contact_page') {
+                message += "I have an inquiry. Please contact me.";
+            } else {
+                message += "I have an inquiry about your products.";
+            }
+            
+            window.open(`https://wa.me/918882990486?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // FORM SUBMISSIONS
+        function submitSchoolRegistration() {
+            const schoolName = document.getElementById('school-name').value;
+            const city = document.getElementById('school-city').value;
+            const phone = document.getElementById('school-phone').value;
+            const email = document.getElementById('school-email').value;
+            const strength = document.getElementById('student-strength').value;
+            
+            if (!schoolName || !city || !phone) {
+                showToast('Please fill required fields');
+                return;
+            }
+            
+            let message = `New School Registration:\n\n`;
+            message += `School: ${schoolName}\n`;
+            message += `City: ${city}\n`;
+            message += `Phone: ${phone}\n`;
+            message += `Email: ${email || 'Not provided'}\n`;
+            message += `Student Strength: ${strength || 'Not specified'}\n\n`;
+            message += `Please contact with partnership details.`;
+            
+            window.open(`https://wa.me/918882990486?text=${encodeURIComponent(message)}`, '_blank');
+            showToast('School registration submitted!');
+            closeModal('school-registration-modal');
+            
+            // Clear form
+            document.getElementById('school-name').value = '';
+            document.getElementById('school-city').value = '';
+            document.getElementById('school-phone').value = '';
+            document.getElementById('school-email').value = '';
+            document.getElementById('student-strength').value = '';
+        }
+
+        function submitCustomQuote() {
+            const requirements = document.getElementById('custom-requirements').value;
+            const name = document.getElementById('custom-name').value;
+            const phone = document.getElementById('custom-phone').value;
+            const email = document.getElementById('custom-email').value;
+            
+            if (!requirements || !name || !phone) {
+                showToast('Please fill required fields');
+                return;
+            }
+            
+            let message = `Custom Quote Request:\n\n`;
+            message += `Name: ${name}\n`;
+            message += `Phone: ${phone}\n`;
+            message += `Email: ${email || 'Not provided'}\n\n`;
+            message += `Requirements:\n${requirements}\n\n`;
+            message += `Please provide pricing and options.`;
+            
+            window.open(`https://wa.me/918882990486?text=${encodeURIComponent(message)}`, '_blank');
+            showToast('Custom quote request sent!');
+            closeModal('custom-quote-modal');
+            
+            // Clear form
+            document.getElementById('custom-requirements').value = '';
+            document.getElementById('custom-name').value = '';
+            document.getElementById('custom-phone').value = '';
+            document.getElementById('custom-email').value = '';
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            showToast('Contact form submitted! We\'ll get back to you soon.');
+            event.target.reset();
+        }
+
+        // UTILITY FUNCTIONS
+        function initEventListeners() {
+            // Search toggle
+            document.getElementById('search-toggle').addEventListener('click', function() {
+                const searchBar = document.getElementById('search-bar');
+                searchBar.style.display = searchBar.style.display === 'block' ? 'none' : 'block';
+                
+                if (searchBar.style.display === 'block') {
+                    document.getElementById('search-input').focus();
+                }
+            });
+
+            // Search input
+            document.getElementById('search-input').addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
+                const results = document.getElementById('search-results');
+                
+                if (query.length < 2) {
+                    results.style.display = 'none';
+                    return;
+                }
+                
+                // Filter products
+                const filteredProducts = [...PRODUCT_DATA.allProducts]
+                    .filter(product => 
+                        product.name.toLowerCase().includes(query) || 
+                        product.desc?.toLowerCase().includes(query) ||
+                        product.category?.toLowerCase().includes(query)
+                    )
+                    .slice(0, 8);
+                
+                if (filteredProducts.length > 0) {
+                    results.innerHTML = filteredProducts.map(product => `
+                        <div class="p-4 border-b hover:bg-slate-50 cursor-pointer flex items-center gap-4" 
+                             onclick="viewProduct('${product.id}'); closeSearch();">
+                            <div class="w-12 h-12 rounded-lg bg-slate-100 overflow-hidden flex-shrink-0">
+                                <img src="${product.img}" alt="${product.name}" class="w-full h-full object-contain p-1">
+                            </div>
+                            <div>
+                                <div class="font-bold">${product.name}</div>
+                                <div class="text-sm text-slate-500">${product.desc?.substring(0, 40)}...</div>
+                                <div class="text-xs text-blue-600 font-bold mt-1">${product.category}</div>
+                            </div>
+                        </div>
+                    `).join('');
+                    results.style.display = 'block';
+                } else {
+                    results.innerHTML = '<div class="p-4 text-slate-500 text-center">No products found</div>';
+                    results.style.display = 'block';
+                }
+            });
+
+            // Close search when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('#search-bar') && !e.target.closest('#search-toggle')) {
+                    closeSearch();
+                }
+            });
+
+            // Back to top button visibility
+            window.addEventListener('scroll', function() {
+                const backToTop = document.querySelector('.back-to-top-enhanced');
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            // Close modals on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeAllModals();
+                    closeSearch();
+                }
+            });
+
+            // View product (placeholder)
+            function viewProduct(productId) {
+                showToast('Product details: ' + productId);
+                // In a complete implementation, this would show product details
+            }
+
+            // PDF download
+            function downloadPDF() {
+                showToast('PDF catalog download started');
+                // In production, this would trigger actual PDF download
+            }
+        }
+
+        function closeSearch() {
+            document.getElementById('search-bar').style.display = 'none';
+            const results = document.getElementById('search-results');
+            if (results) {
+                results.style.display = 'none';
+                results.innerHTML = '';
+            }
+            document.getElementById('search-input').value = '';
+        }
+
+        // SCROLL TO TOP
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

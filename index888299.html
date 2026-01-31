@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bhaskar Educational Store | Premium Stationery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #fbbf24;
+            --dark: #0f172a;
+            --card-bg: #ffffff;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth;
+            background-color: #f8fafc;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #splash-screen {
+            position: fixed;
+            inset: 0;
+            background: #0f172a;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s;
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 1.25rem;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .product-card:active {
+            transform: scale(0.96);
+        }
+
+        .img-container {
+            width: 100%;
+            background: #ffffff; 
+            border-radius: 0.75rem;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #f1f5f9;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            mix-blend-mode: multiply; 
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.65rem;
+            border-radius: 9999px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .page-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+            padding-bottom: 7rem;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-active {
+            color: var(--primary) !important;
+        }
+
+        .nav-active i {
+            transform: translateY(-2px);
+            color: var(--primary);
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8fafc;
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
+        <div class="w-32 h-32 rounded-2xl flex items-center justify-center overflow-hidden mb-4 animate-pulse">
+            <img src="bes logo cut.png" alt="BES Logo" class="w-full h-full object-contain">
+        </div>
+        <h1 class="text-white font-black tracking-tighter text-2xl uppercase">Bhaskar</h1>
+        <p class="text-blue-400 text-[10px] uppercase tracking-[0.3em] font-bold">Educational Store</p>
+    </div>
+
+    <!-- PDF MODAL -->
+    <div id="pdf-modal" class="modal-overlay" onclick="closePdf()">
+        <div class="modal-content h-[80vh] flex flex-col" onclick="event.stopPropagation()">
+            <div class="p-4 border-b flex justify-between items-center">
+                <h3 class="font-bold">Digital Catalog</h3>
+                <button onclick="closePdf()" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="flex-1 bg-slate-100">
+                <iframe id="pdf-frame" src="" class="w-full h-full"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- STICKY HEADER -->
+    <header class="glass-header sticky top-0 z-50 p-4 flex justify-between items-center border-b border-slate-100">
+        <div class="flex items-center gap-3" onclick="navigateTo('home')">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden border border-slate-100 bg-white">
+                <img src="bes logo cut.png" alt="BES Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+                <h1 class="font-extrabold text-sm tracking-tighter leading-none text-slate-900 uppercase">Bhaskar</h1>
+                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">Educational Store</p>
+            </div>
+        </div>
+        <div class="flex gap-2">
+            <button onclick="openPdf()" class="text-slate-400 w-10 h-10 rounded-full flex items-center justify-center border border-slate-100 active:bg-slate-50">
+                <i class="fa-solid fa-file-pdf"></i>
+            </button>
+            <a href="https://wa.me/918882990486" class="bg-[#25D366] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <main class="max-w-md mx-auto p-4 space-y-6">
+            <section class="bg-slate-900 rounded-[2rem] p-6 text-white relative overflow-hidden flex flex-col justify-end shadow-xl">
+                <div class="absolute top-6 right-6">
+                    <span class="badge bg-blue-600">PREMIUM TOOLS</span>
+                </div>
+                <div class="relative z-10 pt-12">
+                    <h2 class="text-3xl font-extrabold mb-2 leading-tight">Mastering<br><span class="text-blue-500">Precision.</span></h2>
+                    <p class="text-slate-400 text-xs mb-6">India's trusted name for mathematical instruments since 2006.</p>
+                    <div class="img-container aspect-[16/9] mb-2 bg-white border border-white/5 rounded-2xl overflow-hidden">
+                        <img id="main-display-img" src="bes logo cut.png" alt="Main Store">
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-extrabold text-lg text-slate-800">Featured Series</h3>
+                    <span class="text-blue-600 text-[10px] font-bold uppercase tracking-widest">Collector's Edition</span>
+                </div>
+                <div class="grid grid-cols-2 gap-3" id="home-featured-grid"></div>
+            </section>
+
+            <section class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-extrabold text-lg text-slate-800">Best Sellers</h3>
+                    <button onclick="navigateTo('products')" class="text-blue-600 text-[10px] font-bold uppercase tracking-widest">See All</button>
+                </div>
+                <div id="home-trending-grid" class="grid grid-cols-2 gap-3"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- SINGLE PRODUCT VIEW -->
+    <div id="product-detail" class="page-content">
+        <main class="max-w-md mx-auto p-4">
+            <button onclick="navigateTo('products')" class="mb-4 flex items-center gap-2 text-slate-500 font-bold text-xs uppercase tracking-widest">
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+            <div id="product-detail-content" class="bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 overflow-hidden">
+                <!-- Content injected by JS -->
+            </div>
+        </main>
+    </div>
+
+    <!-- MFG PAGE (Legacy View) -->
+    <div id="company" class="page-content">
+        <main class="max-w-md mx-auto p-4 space-y-6">
+            <header>
+                <h2 class="text-3xl font-black text-slate-900 tracking-tight">Our Legacy</h2>
+                <p class="text-slate-500 text-xs mt-1">Industrial Grade Mathematical Instruments</p>
+            </header>
+            <div class="bg-blue-600 rounded-3xl p-6 text-white shadow-lg shadow-blue-600/20">
+                <h4 class="font-bold text-sm mb-2">Manufacturing Excellence</h4>
+                <p class="text-[11px] opacity-90 leading-relaxed">Based in Delhi, we specialize in self-centering compasses and high-grade scales designed for accuracy up to 0.01mm.</p>
+            </div>
+            <div class="space-y-4" id="company-products-list"></div>
+        </main>
+    </div>
+
+    <!-- STORE CATALOG -->
+    <div id="products" class="page-content">
+        <main class="max-w-md mx-auto p-4 space-y-6">
+            <header class="flex items-center justify-between">
+                <h2 class="text-2xl font-black text-slate-800">Store</h2>
+                <div class="text-[10px] font-bold text-slate-400 uppercase">2026 Collection</div>
+            </header>
+            
+            <div class="bg-slate-100 p-4 rounded-2xl flex items-center gap-4 border border-slate-200" onclick="openPdf()">
+                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-blue-600 shadow-sm">
+                    <i class="fa-solid fa-file-pdf text-xl"></i>
+                </div>
+                <div class="flex-1">
+                    <p class="text-xs font-bold text-slate-800">Digital Catalog PDF</p>
+                    <p class="text-[10px] text-slate-500">Full price list & details</p>
+                </div>
+                <button class="bg-white px-4 py-2 rounded-lg text-[10px] font-bold shadow-sm border border-slate-200">VIEW</button>
+            </div>
+
+            <div id="full-catalog-grid" class="grid grid-cols-1 gap-3"></div>
+        </main>
+    </div>
+
+    <!-- GUIDE PAGE -->
+    <div id="about" class="page-content">
+        <main class="max-w-md mx-auto p-4 space-y-6">
+            <header>
+                <h2 class="text-3xl font-black text-slate-800 tracking-tight">Support</h2>
+                <p class="text-slate-500 text-xs mt-1">Complete Guide to Bhaskar Store</p>
+            </header>
+
+            <section class="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 space-y-4">
+                <h3 class="text-xl font-black text-slate-800">About Bhaskar</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Established in 2006, <b>Bhaskar Educational Store (BES)</b> has emerged as a leader in manufacturing precision mathematical instruments. We pride ourselves on engineering tools that bridge the gap between academic learning and industrial accuracy.
+                </p>
+            </section>
+
+            <section class="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100">
+                <h3 class="text-xl font-black text-slate-800 mb-6">How to Order</h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 bg-blue-600 text-white rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-xs shadow-md">1</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Select Your Items</p>
+                            <p class="text-xs text-slate-500 mt-1">Browse the <b>STORE</b> tab or view the <button onclick="openPdf()" class="text-blue-600 font-bold underline">Digital Catalog</button>.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 bg-blue-600 text-white rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-xs shadow-md">2</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Send Inquiry</p>
+                            <p class="text-xs text-slate-500 mt-1">Click the <b>WhatsApp</b> icon to share your requirement.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-4">
+                <div class="flex justify-between items-center px-2">
+                    <h3 class="font-extrabold text-lg text-slate-800">Visit Our Store</h3>
+                    <a href="https://maps.google.com/maps?q=176/8,+Padam+Nagar,+Gali+No+1,Kishan+Ganj" target="_blank" class="text-blue-600 text-[10px] font-bold uppercase tracking-widest">Open in Maps</a>
+                </div>
+                <div class="overflow-hidden border border-slate-100 rounded-[2rem] shadow-sm">
+                    <iframe width="100%" height="250" frameborder="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=176/8,%20Padam%20Nagar,%20Gali%20No%201,Kishan%20Ganj+(bhaskar%20educational%20store)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-content">
+        <main class="max-w-md mx-auto p-4 space-y-4">
+            <h2 class="text-2xl font-black text-slate-800 px-2 mb-4">Contact</h2>
+            
+            <a href="tel:+918882990486" class="p-5 bg-white border border-slate-100 rounded-2xl flex items-center gap-4 shadow-sm">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl"><i class="fa-solid fa-phone"></i></div>
+                <div><p class="text-[10px] uppercase font-bold text-slate-400">Phone</p><p class="text-sm font-bold text-slate-800">+91 8882990486</p></div>
+            </a>
+
+            <a href="mailto:samdk2006@gmail.com" class="p-5 bg-white border border-slate-100 rounded-2xl flex items-center gap-4 shadow-sm">
+                <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl"><i class="fa-solid fa-envelope"></i></div>
+                <div><p class="text-[10px] uppercase font-bold text-slate-400">Email</p><p class="text-sm font-bold text-slate-800">samdk2006@gmail.com</p></div>
+            </a>
+            
+            <a href="https://wa.me/918882990486" class="p-5 bg-white border border-slate-100 rounded-2xl flex items-center gap-4 shadow-sm">
+                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-xl"><i class="fa-brands fa-whatsapp"></i></div>
+                <div><p class="text-[10px] uppercase font-bold text-slate-400">WhatsApp</p><p class="text-sm font-bold text-slate-800">24/7 Support</p></div>
+            </a>
+        </main>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed bottom-0 left-0 right-0 glass-header border-t border-slate-100 p-3 flex justify-around items-center z-50">
+        <button onclick="navigateTo('home')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn" id="nav-home">
+            <i class="fa-solid fa-house text-lg"></i><span class="text-[9px] font-black">HOME</span>
+        </button>
+        <button onclick="navigateTo('company')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn" id="nav-company">
+            <i class="fa-solid fa-industry text-lg"></i><span class="text-[9px] font-black">MFG</span>
+        </button>
+        <button onclick="navigateTo('products')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn" id="nav-products">
+            <i class="fa-solid fa-shop text-lg"></i><span class="text-[9px] font-black">STORE</span>
+        </button>
+        <button onclick="navigateTo('about')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn" id="nav-about">
+            <i class="fa-solid fa-circle-question text-lg"></i><span class="text-[9px] font-black">GUIDE</span>
+        </button>
+        <button onclick="navigateTo('contact')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn" id="nav-contact">
+            <i class="fa-solid fa-headset text-lg"></i><span class="text-[9px] font-black">CALL</span>
+        </button>
+    </nav>
+
+    <script>
+        const PDF_URL = "geo 2 (1)_protected.pdf"; 
+
+        const PRODUCT_MASTER_DATA = {
+            "bon10": {
+                name: "BON10 Series",
+                img: "BON10.jpeg",
+                desc: "A lightweight and durable geometry box suitable for regular academic use. Designed for easy handling and long-term use.",
+                contents: ["Metal Compass", "Divider", "Scale", "Protractor", "Set Squares", "Pencil", "Eraser", "Sharpener"],
+                tags: ["ACADEMIC", "DURABLE"]
+            },
+            "geolike": {
+                name: "GEO LIKE",
+                img: "GEO LIKE.jpeg",
+                desc: "A premium geometry box designed with a professional look. Features a sleek, geometric-inspired design with a strong outer body.",
+                contents: ["High-accuracy Compass", "Divider", "Ruler", "Protractor", "Set Squares", "Pencil", "Eraser", "Sharpener"],
+                tags: ["PROFESSIONAL", "PRECISION"]
+            },
+            "junior": {
+                name: "Bhaskar Junior",
+                img: "junior3.jpeg",
+                desc: "Specially designed for junior and primary students. Contains basic geometry tools with safe, rounded edges for secure use.",
+                contents: ["Safety Compass", "Rounded Ruler", "Protractor", "Eraser", "Sharpener", "Primary Pencil"],
+                tags: ["KIDS SAFE", "BEGINNERS"]
+            },
+            "allblack": {
+                name: "All Black Edition",
+                img: "all black main.jpeg",
+                desc: "A premium matte-finish geometry box with an all-black professional look. White contrast markings ensure excellent visibility.",
+                contents: ["Premium Metal Compass", "Professional Divider", "Matte Ruler", "Set Squares", "Protractor", "Drawing Pencil", "Dark Eraser"],
+                tags: ["PREMIUM", "ENGINEERING"]
+            },
+            "dhoom": {
+                name: "Dhoom Series",
+                img: "dhoom.png",
+                desc: "A bold and energetic geometry box designed for active students. Features dynamic colors and a strong build for daily use.",
+                contents: ["Standard Compass", "Divider", "15cm Scale", "Set Squares", "Protractor", "Pencil", "Eraser"],
+                tags: ["SPORTY", "STUDENT CHOICE"]
+            },
+            "maxima": {
+                name: "Maxima Pro",
+                img: "mamafa.jpeg",
+                desc: "A heavy-duty geometry box built for maximum performance. Recommended for advanced students and technical drawing.",
+                contents: ["Precision Compass", "Industrial Divider", "Hardened Scale", "Heavy-duty Set Squares", "Protractor", "Quality Stationery"],
+                tags: ["HEAVY DUTY", "TECHNICAL"]
+            },
+            "chotabheem": {
+                name: "Chhota Bheem",
+                img: "chota bhemm mainnnn.png",
+                desc: "A fun and attractive geometry box featuring Chota Bheem theme. Bright colors and cartoon design make learning enjoyable.",
+                contents: ["Character Compass", "Theme Ruler", "Protractor", "Safe Set Squares", "Character Eraser"],
+                tags: ["CHARACTER SERIES", "KIDS"]
+            },
+            "study": {
+                name: "Classic Study",
+                img: "study main.jpeg",
+                desc: "A value-for-money geometry box for everyday academic needs. Compact, lightweight, and easy to carry.",
+                contents: ["Standard Compass", "Divider", "Plastic Ruler", "Set Squares", "Eraser", "Sharpener"],
+                tags: ["ECONOMY", "BEST VALUE"]
+            },
+            "deluxe": {
+                name: "Deluxe Premium",
+                img: "DELUCE.jpeg",
+                desc: "A deluxe-quality geometry box with enhanced finishing. Best for students who want a premium feel and performance.",
+                contents: ["Refined Metal Compass", "Divider", "High-visibility Scale", "Premium Set Squares", "Soft Eraser", "Gold Sharpener"],
+                tags: ["LUXURY", "SMOOTH FINISH"]
+            },
+            "gold": {
+                name: "Gold Heritage",
+                img: "gold.png",
+                desc: "A premium gold-themed geometry box with an elegant appearance. Combines accuracy with a luxurious look.",
+                contents: ["Gold-finished Compass", "Precision Divider", "Metallic Ruler", "Clear Protractor", "Set Squares", "Premium Stationery"],
+                tags: ["GIFTING", "ELITE"]
+            }
+        };
+
+        const FEATURED_LIST = ["gold", "allblack", "maxima", "deluxe"];
+        const TRENDING_LIST = ["study", "geolike", "bon10", "dhoom"];
+        const CATALOG_LIST = ["junior", "chotabheem", "study", "dhoom", "bon10", "geolike"];
+
+        const navigateTo = (pageId) => {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('nav-active'));
+            const target = document.getElementById(pageId);
+            if(target) target.classList.add('active');
+            const navBtn = document.getElementById(`nav-${pageId}`);
+            if(navBtn) navBtn.classList.add('nav-active');
+            window.scrollTo(0, 0);
+        };
+
+        const viewProduct = (productId) => {
+            const product = PRODUCT_MASTER_DATA[productId];
+            if (!product) return;
+            
+            const content = document.getElementById('product-detail-content');
+            
+            content.innerHTML = `
+                <div class="img-container aspect-square mb-6 bg-white rounded-3xl p-4">
+                    <img src="${product.img}" alt="${product.name}" onerror="this.src='bes logo cut.png'">
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            ${product.tags.map(tag => `<span class="badge bg-blue-50 text-blue-700">${tag}</span>`).join('')}
+                        </div>
+                        <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">${product.name}</h2>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest">Description</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">${product.desc}</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest">What's inside the box?</h4>
+                        <div class="grid grid-cols-1 gap-2">
+                            ${product.contents.map(item => `
+                                <div class="feature-item">
+                                    <i class="fa-solid fa-check-circle text-blue-500 text-sm"></i>
+                                    <span class="text-xs font-bold text-slate-700">${item}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <a href="https://wa.me/918882990486?text=Hello Bhaskar Store! I want to inquire about the ${product.name}." 
+                           class="w-full bg-[#25D366] text-white py-5 rounded-[1.5rem] font-black flex items-center justify-center gap-3 shadow-xl shadow-green-100 active:scale-95 transition-all uppercase tracking-tighter">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> ORDER ON WHATSAPP
+                        </a>
+                    </div>
+                </div>
+            `;
+            navigateTo('product-detail');
+        };
+
+        const openPdf = () => {
+            const modal = document.getElementById('pdf-modal');
+            const frame = document.getElementById('pdf-frame');
+            frame.src = PDF_URL;
+            modal.style.display = 'flex';
+        };
+
+        const closePdf = () => {
+            document.getElementById('pdf-modal').style.display = 'none';
+        };
+
+        const renderGrids = () => {
+            const homeGrid = document.getElementById('home-trending-grid');
+            const catalogGrid = document.getElementById('full-catalog-grid');
+            const featuredGrid = document.getElementById('home-featured-grid');
+
+            if (featuredGrid) {
+                featuredGrid.innerHTML = FEATURED_LIST.map(id => {
+                    const item = PRODUCT_MASTER_DATA[id];
+                    return `
+                        <div class="product-card" onclick="viewProduct('${id}')">
+                            <div class="img-container aspect-square mb-2">
+                                <img src="${item.img}" alt="${item.name}">
+                            </div>
+                            <h4 class="font-black text-[10px] text-slate-800 uppercase truncate">${item.name}</h4>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            if (homeGrid) {
+                homeGrid.innerHTML = TRENDING_LIST.map(id => {
+                    const item = PRODUCT_MASTER_DATA[id];
+                    return `
+                        <div class="product-card" onclick="viewProduct('${id}')">
+                            <div class="img-container aspect-square mb-2">
+                                <img src="${item.img}" alt="${item.name}">
+                            </div>
+                            <h4 class="font-black text-[10px] text-slate-800 uppercase truncate">${item.name}</h4>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            if (catalogGrid) {
+                catalogGrid.innerHTML = CATALOG_LIST.map(id => {
+                    const item = PRODUCT_MASTER_DATA[id];
+                    return `
+                        <div class="product-card flex items-center gap-4 p-3 bg-white" onclick="viewProduct('${id}')">
+                            <div class="img-container w-16 h-16 flex-shrink-0">
+                                <img src="${item.img}" alt="${item.name}">
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-black text-xs uppercase text-slate-800 truncate">${item.name}</h4>
+                                <p class="text-[9px] text-slate-500 mt-0.5 line-clamp-1">${item.desc}</p>
+                            </div>
+                            <button class="w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+                        </div>
+                    `;
+                }).join('');
+            }
+        };
+
+        window.onload = () => {
+            renderGrids();
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                if (splash) {
+                    splash.style.opacity = '0';
+                    setTimeout(() => splash.style.visibility = 'hidden', 500);
+                }
+            }, 1200);
+            navigateTo('home');
+        };
+    </script>
+</body>
+</html>

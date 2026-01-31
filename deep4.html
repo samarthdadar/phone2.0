@@ -1,0 +1,2596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bhaskar Educational Store | ISO 9001:2015 Certified | Precision Instruments Since 2006</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ISO 9001:2015 Certified manufacturer of precision mathematical instruments. Premium geometry boxes, compasses, scales for schools & professionals since 2006.">
+    <meta name="keywords" content="geometry box, mathematical instruments, compass, scale, school supplies, stationery India, engineering drawing tools">
+    <meta name="author" content="Bhaskar Educational Store">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100vh;
+        }
+
+        /* SPLASH SCREEN */
+        #splash-screen {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease;
+        }
+
+        .splash-logo-container {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: floatLogo 3s ease-in-out infinite;
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.4);
+            margin-bottom: 2rem;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        /* GLASS EFFECTS */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ENHANCED CARDS */
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 32px 64px -12px rgba(37, 99, 235, 0.25);
+        }
+
+        /* 3D IMAGE CONTAINER */
+        .img-3d-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            height: 200px;
+        }
+
+        .img-3d-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .product-card:hover .img-3d-container img {
+            transform: scale(1.08);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInFromRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideInFromRight 0.5s ease forwards;
+        }
+
+        .animate-slide-left {
+            animation: slideInFromLeft 0.5s ease forwards;
+        }
+
+        .animate-zoom-in {
+            animation: zoomIn 0.4s ease forwards;
+        }
+
+        /* GRADIENT TEXT */
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* PAGE TRANSITIONS */
+        .page-content {
+            display: none;
+            animation: fadeIn 0.6s ease;
+            padding-bottom: 7rem;
+            min-height: calc(100vh - 80px);
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* PRODUCT DETAIL PAGE */
+        .product-detail-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 999;
+            overflow-y: auto;
+            display: none;
+            animation: slideInFromRight 0.5s ease forwards;
+        }
+
+        .product-detail-page.active {
+            display: block;
+        }
+
+        /* FLOATING ELEMENTS */
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* INSTANT QUOTE BADGE */
+        .instant-quote-badge {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            z-index: 90;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 800;
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: pulseWhatsApp 2s infinite;
+            z-index: 100;
+        }
+
+        @keyframes pulseWhatsApp {
+            0%, 100% { box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 12px 32px 12px rgba(37, 211, 102, 0.6); }
+        }
+
+        /* BACK TO TOP */
+        .back-to-top-enhanced {
+            position: fixed;
+            bottom: 180px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
+            z-index: 90;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .back-to-top-enhanced.visible {
+            opacity: 1;
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast-notification {
+            position: fixed;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            font-weight: 600;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(20px);
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* PRODUCT LABELS */
+        .product-label {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 20;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.65rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            animation: labelPulse 2s infinite;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes labelPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .label-new { background: #10b981; color: white; }
+        .label-bestseller { background: #ef4444; color: white; }
+        .label-premium { background: #f59e0b; color: white; }
+        .label-limited { background: #8b5cf6; color: white; }
+
+        /* CART BADGE */
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4444;
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.6rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* MODALS */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-card {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            animation: modalSlide 0.5s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalSlide {
+            from { transform: translateY(40px); }
+            to { transform: translateY(0); }
+        }
+
+        /* STATS CARD */
+        .stats-card-3d {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .stats-card-3d:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+            border-color: #2563eb;
+        }
+
+        /* FEATURE ICON */
+        .feature-icon-3d {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.3);
+            transition: all 0.4s ease;
+            margin: 0 auto 1rem;
+        }
+
+        /* TESTIMONIAL CARD */
+        .testimonial-card-3d {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .testimonial-card-3d:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+            border-color: #2563eb;
+        }
+
+        /* PRODUCT DETAIL CARD */
+        .product-detail-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(226, 232, 240, 0.8);
+            margin: 1rem;
+        }
+
+        /* NAV INDICATOR */
+        .nav-indicator {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-active .nav-indicator {
+            opacity: 1;
+            transform: translateX(-50%) scale(1.2);
+        }
+
+        /* PRODUCT GALLERY */
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        /* PRODUCT SPECIFICATIONS */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .spec-item {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+        }
+
+        /* PRODUCT FEATURES */
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li i {
+            color: #2563eb;
+            font-size: 1.25rem;
+        }
+
+        /* QUANTITY SELECTOR */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #2563eb;
+            transition: all 0.3s ease;
+        }
+
+        .qty-btn:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .qty-input {
+            width: 60px;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border: none;
+            background: transparent;
+        }
+
+        /* PRODUCT TABS */
+        .product-tabs {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: #2563eb;
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1.1rem;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #2563eb;
+            border-radius: 3px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* RELATED PRODUCTS */
+        .related-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .product-card:hover {
+                transform: translateY(-8px);
+            }
+            
+            .instant-quote-badge {
+                bottom: 100px;
+                right: 15px;
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .page-content {
+                padding-bottom: 8rem;
+            }
+            
+            .product-detail-card {
+                padding: 1.5rem;
+                margin: 0.5rem;
+            }
+            
+            .back-to-top-enhanced {
+                bottom: 160px;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* LOADING SKELETON */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 12px;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* SHARE BUTTONS */
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .share-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-share { background: #25D366; }
+        .facebook-share { background: #1877F2; }
+        .twitter-share { background: #1DA1F2; }
+        .telegram-share { background: #0088cc; }
+
+        /* WARRANTY BADGE */
+        .warranty-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* DELIVERY INFO */
+        .delivery-info {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border-left: 4px solid #f59e0b;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- INSTANT QUOTE BADGE -->
+    <div class="instant-quote-badge" onclick="openWhatsApp('instant_quote')">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        <span class="hidden sm:inline">Instant Quote</span>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <div class="back-to-top-enhanced" onclick="scrollToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center justify-center gap-3">
+            <i class="fa-solid fa-check-circle text-green-400"></i>
+            <span id="toast-message">Product added to inquiry list</span>
+        </div>
+    </div>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
+        <div class="splash-logo-container">
+            <img src="bes logo cut.png" alt="BES Logo" class="w-20 h-20 object-contain">
+        </div>
+        <h1 class="text-white font-black tracking-tighter text-5xl mb-4 gradient-text">BHASKAR</h1>
+        <p class="text-blue-300 text-sm uppercase tracking-[0.4em] font-bold mb-12">EDUCATIONAL STORE</p>
+        
+        <div class="flex gap-3">
+            <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce floating-element"></div>
+            <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce floating-element" style="animation-delay: 0.2s"></div>
+            <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce floating-element" style="animation-delay: 0.4s"></div>
+        </div>
+        
+        <div class="absolute bottom-8 text-center">
+            <p class="text-blue-400 text-xs font-medium">ISO 9001:2015 Certified • Since 2006</p>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="glass-header sticky top-0 z-50 px-5 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4" onclick="navigateTo('home')" style="cursor: pointer;">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center overflow-hidden border-2 border-white/20 bg-gradient-to-br from-blue-600 to-blue-800 shadow-xl relative">
+                <img src="bes logo cut.png" alt="BES Logo" class="w-10 h-10 object-contain">
+            </div>
+            <div>
+                <h1 class="font-black text-lg tracking-tight leading-none text-slate-900 uppercase">Bhaskar</h1>
+                <p class="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1 flex items-center gap-1">
+                    <i class="fa-solid fa-certificate text-[8px]"></i>
+                    Since 2006
+                </p>
+            </div>
+        </div>
+        
+        <div class="flex gap-3">
+            <button id="search-toggle" class="text-slate-500 w-12 h-12 rounded-2xl flex items-center justify-center bg-slate-50/80 border border-slate-200/50 hover:bg-white transition-all duration-300 hover:scale-105">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            
+            <button onclick="openModal('pdf-modal')" class="text-slate-500 w-12 h-12 rounded-2xl flex items-center justify-center bg-slate-50/80 border border-slate-200/50 hover:bg-white transition-all duration-300 hover:scale-105 relative">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></span>
+                <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+            </button>
+            
+            <button onclick="openModal('cart-modal')" class="text-slate-500 w-12 h-12 rounded-2xl flex items-center justify-center bg-slate-50/80 border border-slate-200/50 hover:bg-white transition-all duration-300 hover:scale-105 relative">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="header-cart-badge" class="cart-badge">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SEARCH BAR -->
+    <div id="search-bar" class="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg shadow-2xl p-4 hidden" style="z-index: 1000;">
+        <div class="relative max-w-md mx-auto">
+            <div class="relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="search-input" placeholder="Search products..." 
+                       class="w-full p-4 pl-12 rounded-2xl border-2 border-slate-200 bg-white focus:outline-none focus:border-blue-500 transition-all duration-300">
+                <button onclick="closeSearch()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div id="search-results" class="absolute top-full left-0 right-0 bg-white shadow-2xl rounded-2xl mt-2 max-h-96 overflow-y-auto hidden"></div>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL PAGE (Hidden by default) -->
+    <div id="product-detail-page" class="product-detail-page">
+        <!-- Content will be loaded dynamically -->
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HERO SECTION -->
+            <section class="relative rounded-[3rem] overflow-hidden min-h-[60vh] flex items-center">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900"></div>
+                
+                <div class="relative z-10 w-full py-12 px-4 sm:px-8 text-center">
+                    <span class="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm font-bold uppercase tracking-widest mb-6 border border-white/20">
+                        ISO 9001:2015 Certified
+                    </span>
+                    
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                        Precision That <span class="gradient-text">Elevates</span><br>Every Calculation
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-blue-100/90 max-w-2xl mx-auto mb-10">
+                        India's premier manufacturer of mathematical instruments since 2006.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                        <button onclick="navigateTo('products')" class="px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-700 rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            Explore Store
+                        </button>
+                        <button onclick="openWhatsApp('hero_section')" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            Get Instant Quote
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                        <div class="stats-card-3d">
+                            <div class="text-2xl sm:text-3xl font-black text-blue-600 mb-2" id="years-counter">0</div>
+                            <div class="text-xs sm:text-sm font-semibold text-slate-600">Years of Excellence</div>
+                        </div>
+                        <div class="stats-card-3d">
+                            <div class="text-2xl sm:text-3xl font-black text-blue-600 mb-2" id="schools-counter">0</div>
+                            <div class="text-xs sm:text-sm font-semibold text-slate-600">Schools Trust Us</div>
+                        </div>
+                        <div class="stats-card-3d">
+                            <div class="text-2xl sm:text-3xl font-black text-blue-600 mb-2">100%</div>
+                            <div class="text-xs sm:text-sm font-semibold text-slate-600">Quality Checks</div>
+                        </div>
+                        <div class="stats-card-3d">
+                            <div class="text-2xl sm:text-3xl font-black text-blue-600 mb-2">0.01mm</div>
+                            <div class="text-xs sm:text-sm font-semibold text-slate-600">Precision</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FEATURED PRODUCTS -->
+            <section class="space-y-10">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Featured <span class="gradient-text">Collections</span></h2>
+                    <p class="text-slate-600">Our premium mathematical instruments</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="featured-products">
+                    <!-- Products loaded by JavaScript -->
+                </div>
+            </section>
+
+            <!-- WHY CHOOSE US -->
+            <section class="space-y-10">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Why <span class="gradient-text">Choose</span> Bhaskar?</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="stats-card-3d">
+                        <div class="feature-icon-3d">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-3">ISO Certified Quality</h4>
+                        <p class="text-slate-600 text-sm">Every instrument undergoes 100+ quality checks to ensure perfection</p>
+                    </div>
+                    
+                    <div class="stats-card-3d">
+                        <div class="feature-icon-3d">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-3">Pan-India Delivery</h4>
+                        <p class="text-slate-600 text-sm">Free shipping across India with priority delivery for institutions</p>
+                    </div>
+                    
+                    <div class="stats-card-3d">
+                        <div class="feature-icon-3d">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-3">Dedicated Support</h4>
+                        <p class="text-slate-600 text-sm">24/7 customer support with dedicated account managers</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INSTITUTIONAL SOLUTIONS -->
+            <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-6 sm:p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Institutional <span class="gradient-text">Solutions</span></h2>
+                    <p class="text-slate-600">Customized solutions for schools, colleges, and educational institutions</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div class="testimonial-card-3d">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">School Bulk Packs</h4>
+                        <p class="text-slate-600 text-sm">Customized geometry boxes with school branding and bulk pricing</p>
+                        <div class="mt-4">
+                            <span class="text-blue-600 font-bold text-sm">Up to 40% OFF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card-3d">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">College Kits</h4>
+                        <p class="text-slate-600 text-sm">Professional-grade instruments for engineering and architecture students</p>
+                        <div class="mt-4">
+                            <span class="text-blue-600 font-bold text-sm">Premium Quality</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button onclick="openModal('school-registration-modal')" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                        Register Your Institution
+                    </button>
+                </div>
+            </section>
+
+            <!-- CUSTOM QUOTE CTA -->
+            <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200">
+                <div class="text-center">
+                    <div class="feature-icon-3d">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Need <span class="gradient-text">Custom</span> Pricing?</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto mb-8">
+                        Get personalized quotes based on your specific requirements and quantity needs
+                    </p>
+                    <button onclick="openModal('custom-quote-modal')" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                        Request Custom Quote
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="products" class="page-content">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HEADER -->
+            <div class="text-center">
+                <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">Product <span class="gradient-text">Gallery</span></h1>
+                <p class="text-slate-600">Browse our complete collection of premium mathematical instruments</p>
+                <div class="mt-4">
+                    <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">
+                        <span id="product-count">15</span> Products Available
+                    </span>
+                </div>
+            </div>
+
+            <!-- CATEGORY FILTERS -->
+            <div class="flex flex-wrap gap-3 justify-center" id="category-filters">
+                <!-- Categories loaded by JavaScript -->
+            </div>
+
+            <!-- PRODUCTS GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="all-products">
+                <!-- Products loaded by JavaScript -->
+            </div>
+
+            <!-- BULK ORDER CTA -->
+            <section class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-6 sm:p-8 text-center text-white">
+                <div class="feature-icon-3d mx-auto mb-6" style="background: white; color: #2563eb;">
+                    <i class="fa-solid fa-boxes-packing"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-black mb-4">Bulk Order <span class="text-amber-300">Discounts</span></h2>
+                <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
+                    Ordering for your school, college, or institution? Get special bulk pricing and custom branding options.
+                </p>
+                <button onclick="openModal('school-registration-modal')" class="px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-700 rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    Request Bulk Pricing
+                </button>
+            </section>
+        </main>
+    </div>
+
+    <!-- MANUFACTURING (MFG) PAGE -->
+    <div id="company" class="page-content">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HERO SECTION -->
+            <section class="relative rounded-[3rem] overflow-hidden min-h-[40vh] flex items-center">
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800"></div>
+                
+                <div class="relative z-10 w-full py-12 px-4 sm:px-8 text-center">
+                    <h1 class="text-3xl sm:text-4xl font-black text-white mb-6">
+                        Manufacturing <span class="gradient-text">Excellence</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto">
+                        ISO 9001:2015 certified manufacturing facility with 18 years of precision engineering expertise
+                    </p>
+                </div>
+            </section>
+
+            <!-- MANUFACTURING PROCESS -->
+            <section class="space-y-10">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Our <span class="gradient-text">Manufacturing</span> Process</h2>
+                    <p class="text-slate-600">Precision engineering from raw materials to finished products</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="testimonial-card-3d text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                            1
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Material Selection</h4>
+                        <p class="text-slate-600 text-sm">Grade-A materials including high-carbon steel and shatterproof polymers</p>
+                    </div>
+                    
+                    <div class="testimonial-card-3d text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                            2
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Precision Machining</h4>
+                        <p class="text-slate-600 text-sm">Computer-controlled machining ensures 0.01mm tolerance</p>
+                    </div>
+                    
+                    <div class="testimonial-card-3d text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                            3
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Quality Inspection</h4>
+                        <p class="text-slate-600 text-sm">12-point quality check including alignment and durability tests</p>
+                    </div>
+                    
+                    <div class="testimonial-card-3d text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                            4
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Assembly & Packaging</h4>
+                        <p class="text-slate-600 text-sm">Hand-assembled by skilled craftsmen in protective packaging</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- GUIDE (ABOUT) PAGE -->
+    <div id="about" class="page-content">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HERO SECTION -->
+            <section class="relative rounded-[3rem] overflow-hidden min-h-[40vh] flex items-center">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900"></div>
+                
+                <div class="relative z-10 w-full py-12 px-4 sm:px-8 text-center">
+                    <h1 class="text-3xl sm:text-4xl font-black text-white mb-6">
+                        Bhaskar <span class="gradient-text">Guide</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-blue-100 max-w-3xl mx-auto">
+                        Everything you need to know about our products, ordering process, and support
+                    </p>
+                </div>
+            </section>
+
+            <!-- FAQ SECTION -->
+            <section class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Frequently <span class="gradient-text">Asked</span> Questions</h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="testimonial-card-3d">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">What makes Bhaskar instruments different?</h4>
+                        <p class="text-slate-600 text-sm">Our instruments feature proprietary self-centering technology, industrial-grade materials, and undergo 100+ quality checks. We're ISO 9001:2015 certified and have 18+ years of manufacturing expertise.</p>
+                    </div>
+                    
+                    <div class="testimonial-card-3d">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Do you offer custom branding for schools?</h4>
+                        <p class="text-slate-600 text-sm">Yes! We offer custom branding with school logos, names, and colors. Minimum order quantity applies for custom branding.</p>
+                    </div>
+                    
+                    <div class="testimonial-card-3d">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">What is your delivery time?</h4>
+                        <p class="text-slate-600 text-sm">Standard orders: 3-5 business days. Bulk orders: 5-7 business days. Express delivery available for urgent requirements.</p>
+                    </div>
+                    
+                    <div class="testimonial-card-3d">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Do you offer warranty?</h4>
+                        <p class="text-slate-600 text-sm">All our products come with a 1-year manufacturer warranty against defects in materials and workmanship.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-content">
+        <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <!-- HERO SECTION -->
+            <section class="relative rounded-[3rem] overflow-hidden min-h-[40vh] flex items-center">
+                <div class="absolute inset-0 bg-gradient-to-br from-green-700 to-emerald-800"></div>
+                
+                <div class="relative z-10 w-full py-12 px-4 sm:px-8 text-center">
+                    <h1 class="text-3xl sm:text-4xl font-black text-white mb-6">
+                        Contact <span class="text-amber-300">Us</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-emerald-100 max-w-3xl mx-auto">
+                        Get in touch for inquiries, support, or custom requirements
+                    </p>
+                </div>
+            </section>
+
+            <!-- CONTACT METHODS -->
+            <section class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Contact <span class="gradient-text">Methods</span></h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <!-- Phone -->
+                    <div class="testimonial-card-3d text-center hover:border-blue-500 transition-all duration-300 cursor-pointer" onclick="window.location.href='tel:+918882990486'">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Phone Call</h4>
+                        <p class="text-blue-600 font-bold text-lg">+91 8882990486</p>
+                        <p class="text-slate-500 text-sm mt-2">Direct business line</p>
+                        <div class="mt-4">
+                            <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Tap to Call</span>
+                        </div>
+                    </div>
+                    
+                    <!-- WhatsApp -->
+                    <div class="testimonial-card-3d text-center hover:border-green-500 transition-all duration-300 cursor-pointer" onclick="openWhatsApp('contact_page')">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">WhatsApp</h4>
+                        <p class="text-green-600 font-bold text-lg">Instant Support</p>
+                        <p class="text-slate-500 text-sm mt-2">Quick quotes & support</p>
+                        <div class="mt-4">
+                            <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">Tap to Chat</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="testimonial-card-3d text-center hover:border-purple-500 transition-all duration-300 cursor-pointer" onclick="window.location.href='mailto:samdk2006@gmail.com'">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-900 mb-2">Email</h4>
+                        <p class="text-purple-600 font-bold text-sm">samdk2006@gmail.com</p>
+                        <p class="text-slate-500 text-sm mt-2">Detailed inquiries</p>
+                        <div class="mt-4">
+                            <span class="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full">Tap to Email</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="glass-nav fixed bottom-4 left-1/2 -translate-x-1/2 w-[95%] max-w-md rounded-[2.5rem] p-3 flex justify-around items-center z-50">
+        <button onclick="navigateTo('home')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn relative p-2" id="nav-home">
+            <i class="fa-solid fa-house-chimney text-lg"></i>
+            <span class="text-[9px] font-black uppercase">Home</span>
+            <div class="nav-indicator"></div>
+        </button>
+        <button onclick="navigateTo('company')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn relative p-2" id="nav-company">
+            <i class="fa-solid fa-industry text-lg"></i>
+            <span class="text-[9px] font-black uppercase">MFG</span>
+            <div class="nav-indicator"></div>
+        </button>
+        <button onclick="navigateTo('products')" class="flex flex-col items-center gap-1 text-slate-400 nav-btn relative p-2" id="nav-products">
+            <i class="fa-solid fa-grid-2 text-lg"></i>
+            <span class="text-[9px] font-black uppercase">Store</span>
+            <div class="nav-indicator"></div>
+        </button>
+        <button onclick="navigateTo('about')" class="flex flex-col items-center gap=1 text-slate-400 nav-btn relative p-2" id="nav-about">
+            <i class="fa-solid fa-circle-question text-lg"></i>
+            <span class="text-[9px] font-black uppercase">Guide</span>
+            <div class="nav-indicator"></div>
+        </button>
+        <button onclick="navigateTo('contact')" class="flex flex-col items-center gap=1 text-slate-400 nav-btn relative p-2" id="nav-contact">
+            <i class="fa-solid fa-phone-flip text-lg"></i>
+            <span class="text-[9px] font-black uppercase">Call</span>
+            <div class="nav-indicator"></div>
+        </button>
+    </nav>
+
+    <!-- MODALS -->
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal-overlay" onclick="closeModal('cart-modal')">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="p-6 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <div>
+                            <h3 class="font-extrabold text-lg">Your Inquiry List</h3>
+                            <p class="text-sm opacity-90"><span id="cart-count">0</span> items</p>
+                        </div>
+                    </div>
+                    <button onclick="closeModal('cart-modal')" class="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div id="cart-items" class="space-y-4 max-h-96 overflow-y-auto">
+                    <!-- Cart items loaded dynamically -->
+                </div>
+                <div id="empty-cart" class="text-center py-8">
+                    <i class="fa-solid fa-cart-shopping text-4xl text-slate-300 mb-4"></i>
+                    <p class="text-slate-500 font-bold">Your inquiry list is empty</p>
+                    <p class="text-slate-400 text-sm mt-1">Add products to get a custom quote</p>
+                </div>
+                <div class="mt-6 space-y-4">
+                    <button onclick="sendInquiryViaWhatsApp()" class="w-full py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Get Quote on WhatsApp
+                    </button>
+                    <button onclick="clearCart()" class="w-full py-3 border border-slate-300 text-slate-700 rounded-2xl font-bold text-sm hover:bg-slate-50 transition-colors">
+                        Clear All Items
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- School Registration Modal -->
+    <div id="school-registration-modal" class="modal-overlay" onclick="closeModal('school-registration-modal')">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="p-6 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-school text-xl"></i>
+                        <h3 class="font-extrabold text-lg">School Partnership</h3>
+                    </div>
+                    <button onclick="closeModal('school-registration-modal')" class="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-6 p-4 bg-blue-50 rounded-2xl border border-blue-200">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fa-solid fa-crown text-amber-500"></i>
+                        <span class="font-bold text-blue-800">Special Benefits</span>
+                    </div>
+                    <ul class="text-sm text-blue-700 space-y-1">
+                        <li>• Up to 40% discount on bulk orders</li>
+                        <li>• Free customization with school logo</li>
+                        <li>• Priority delivery and support</li>
+                        <li>• Dedicated account manager</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <input type="text" id="school-name" placeholder="School Name" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="text" id="school-city" placeholder="City" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="tel" id="school-phone" placeholder="Contact Number" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="email" id="school-email" placeholder="Email Address" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <select id="student-strength" class="w-full p-3 border border-slate-300 rounded-xl">
+                        <option value="">Select Student Strength</option>
+                        <option value="<500">Less than 500</option>
+                        <option value="500-1000">500-1000</option>
+                        <option value="1000-2000">1000-2000</option>
+                        <option value=">2000">More than 2000</option>
+                    </select>
+                    <button onclick="submitSchoolRegistration()" class="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl font-bold hover:shadow-lg transition-all">
+                        Register School
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Quote Modal -->
+    <div id="custom-quote-modal" class="modal-overlay" onclick="closeModal('custom-quote-modal')">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="p-6 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-file-signature text-xl"></i>
+                        <h3 class="font-extrabold text-lg">Custom Quote</h3>
+                    </div>
+                    <button onclick="closeModal('custom-quote-modal')" class="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-6 p-4 bg-purple-50 rounded-2xl border border-purple-200">
+                    <p class="text-sm text-purple-700">Tell us your specific requirements for a personalized quote</p>
+                </div>
+                <div class="space-y-4">
+                    <textarea id="custom-requirements" placeholder="Describe your requirements, quantity needed, special features..." class="w-full p-3 border border-slate-300 rounded-xl h-32"></textarea>
+                    <input type="text" id="custom-name" placeholder="Your Name" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="tel" id="custom-phone" placeholder="Contact Number" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <input type="email" id="custom-email" placeholder="Email Address" class="w-full p-3 border border-slate-300 rounded-xl">
+                    <button onclick="submitCustomQuote()" class="w-full py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl font-bold hover:shadow-lg transition-all">
+                        Submit Quote Request
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Modal -->
+    <div id="pdf-modal" class="modal-overlay" onclick="closeModal('pdf-modal')">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="p-6 bg-gradient-to-r from-red-600 to-red-700 text-white">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-file-pdf text-xl"></i>
+                        <h3 class="font-extrabold text-lg">Digital Catalog</h3>
+                    </div>
+                    <button onclick="closeModal('pdf-modal')" class="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6 text-center">
+                <div class="w-24 h-24 bg-gradient-to-br from-red-100 to-red-200 rounded-3xl flex items-center justify-center text-red-600 text-4xl mx-auto mb-6">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+                <h4 class="text-xl font-black text-slate-900 mb-2">Bhaskar Educational Store Catalog 2026</h4>
+                <p class="text-slate-600 mb-6">Complete technical specifications and product details</p>
+                <div class="space-y-3">
+                    <button onclick="downloadPDF()" class="w-full py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-2xl font-bold hover:shadow-lg transition-all">
+                        <i class="fa-solid fa-download mr-2"></i> Download PDF
+                    </button>
+                    <button onclick="closeModal('pdf-modal')" class="w-full py-3 border border-slate-300 text-slate-700 rounded-2xl font-bold">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // COMPREHENSIVE PRODUCT DATA WITH AI-GENERATED DESCRIPTIONS
+        const PRODUCT_DATA = {
+            products: [
+                { 
+                    id: "p1", 
+                    name: "Bhaskar All Black", 
+                    img: "all black main.jpeg", 
+                    desc: "Premium matte black finish with metal components",
+                    category: "premium",
+                    price: "Custom Quote",
+                    tags: ["bestseller", "premium"],
+                    detailedDescription: `
+                        <p>The <strong>Bhaskar All Black Edition</strong> represents the pinnacle of mathematical instrument design, engineered for professionals and discerning students who demand both style and precision. This premium geometry set features a sophisticated matte black finish that reduces glare during extended study sessions while providing an exceptional grip.</p>
+                        
+                        <h4>Precision Engineering:</h4>
+                        <p>Every component in the All Black series is crafted from industrial-grade materials. The compass features a chromium-plated steel construction with a self-centering mechanism that maintains perfect alignment even after thousands of rotations. The 15cm scale is manufactured from 2.0mm thick shatterproof polymer with laser-etched markings that will never fade.</p>
+                        
+                        <h4>Key Specifications:</h4>
+                        <ul>
+                            <li><strong>Compass Pivot:</strong> Tungsten carbide tip with 0.01mm runout tolerance</li>
+                            <li><strong>Scale Material:</strong> UV-resistant ABS polymer with anti-glare coating</li>
+                            <li><strong>Protractor:</strong> 180° semi-circle with 1° precision markings</li>
+                            <li><strong>Set Squares:</strong> 45° and 60° triangles with reinforced edges</li>
+                            <li><strong>Divider:</strong> Spring-loaded mechanism with locking screw</li>
+                        </ul>
+                        
+                        <h4>Ideal For:</h4>
+                        <p>• Engineering and architecture students<br>• Competitive exam preparation (IIT-JEE, NEET)<br>• Professional technical drawing<br>• School mathematics laboratories</p>
+                    `,
+                    specifications: {
+                        "Compass Type": "Self-centering with tungsten pivot",
+                        "Scale Length": "15cm / 6 inches",
+                        "Material": "Chromium-plated steel, ABS polymer",
+                        "Tolerance": "±0.01mm",
+                        "Warranty": "1 year manufacturer warranty",
+                        "Color": "Matte Black",
+                        "Weight": "185 grams",
+                        "Dimensions": "22cm × 15cm × 3cm"
+                    },
+                    features: [
+                        "Self-centering compass mechanism",
+                        "Anti-glare matte finish",
+                        "Laser-etched permanent markings",
+                        "Reinforced metal construction",
+                        "Shock-resistant case",
+                        "Ergonomic design for comfortable grip"
+                    ],
+                    gallery: ["all black main.jpeg", "ac par.png", "scale.png"],
+                    relatedProducts: ["p4", "p5", "p7"]
+                },
+                { 
+                    id: "p2", 
+                    name: "Sonic X Kids", 
+                    img: "sonicx.jpeg", 
+                    desc: "Kids edition with vibrant character graphics",
+                    category: "kids",
+                    price: "Custom Quote",
+                    tags: ["new", "kids"],
+                    detailedDescription: `
+                        <p>The <strong>Sonic X Kids Edition</strong> transforms mathematical learning into an exciting adventure! Designed specifically for young learners aged 6-12, this geometry set combines vibrant character graphics with child-safe, durable construction that can withstand classroom use.</p>
+                        
+                        <h4>Child-Friendly Design:</h4>
+                        <p>Every component in the Sonic X series features rounded edges and safety-certified materials. The compass includes a protective cap for the needle, while all plastic components are made from non-toxic, BPA-free materials. The bright, colorful design featuring popular characters makes geometry practice engaging and fun for children.</p>
+                        
+                        <h4>Educational Features:</h4>
+                        <ul>
+                            <li><strong>Learning Guides:</strong> Includes beginner-friendly instruction manual</li>
+                            <li><strong>Color-Coded:</strong> Different tools in contrasting colors for easy identification</li>
+                            <li><strong>Magnetic Closure:</strong> Secure case that's easy for small hands to open</li>
+                            <li><strong>Extra Accessories:</strong> Includes pencil sharpener and eraser</li>
+                            <li><strong>Measurement Aids:</strong> Scale with centimeter and inch markings</li>
+                        </ul>
+                        
+                        <h4>Safety Standards:</h4>
+                        <p>All materials comply with ASTM D-4236 and EN71 safety standards. The compass needle features a rounded safety tip, and all components pass rigorous choking hazard tests.</p>
+                    `,
+                    specifications: {
+                        "Age Group": "6-12 years",
+                        "Safety Standards": "ASTM D-4236, EN71 compliant",
+                        "Material": "BPA-free plastic, rounded safety edges",
+                        "Compass Type": "Safety-tip with protective cap",
+                        "Case": "Magnetic closure plastic case",
+                        "Weight": "120 grams",
+                        "Dimensions": "18cm × 12cm × 2.5cm"
+                    },
+                    features: [
+                        "Child-safe rounded edges",
+                        "Vibrant character graphics",
+                        "BPA-free materials",
+                        "Safety-tip compass",
+                        "Magnetic closure case",
+                        "Beginner instruction manual"
+                    ],
+                    gallery: ["sonicx.jpeg", "ben main.jpeg"],
+                    relatedProducts: ["p8", "p9", "p11"]
+                },
+                { 
+                    id: "p3", 
+                    name: "Classic Study", 
+                    img: "study main.jpeg", 
+                    desc: "Original heritage series since 2006",
+                    category: "standard",
+                    price: "Custom Quote",
+                    tags: ["bestseller"],
+                    detailedDescription: `
+                        <p>The <strong>Classic Study Series</strong> is our original heritage collection that has been trusted by students across India since 2006. This timeless design combines proven reliability with essential functionality for everyday school use.</p>
+                        
+                        <h4>Time-Tested Reliability:</h4>
+                        <p>For over 18 years, the Classic Study has been the go-to choice for schools nationwide. Its simple, durable design has been refined through generations of student feedback. The compass features our patented self-centering mechanism that maintains precision throughout the academic year, while the transparent scales allow students to see their work clearly.</p>
+                        
+                        <h4>Complete Essential Kit:</h4>
+                        <ul>
+                            <li><strong>High-Precision Compass:</strong> With adjustable pencil holder</li>
+                            <li><strong>15cm Scale:</strong> Clear acrylic with etched markings</li>
+                            <li><strong>180° Protractor:</strong> With base line for accurate alignment</li>
+                            <li><strong>Set Squares:</strong> 45° and 60° transparent triangles</li>
+                            <li><strong>Pencil & Eraser:</strong> High-quality HB pencil and eraser</li>
+                        </ul>
+                        
+                        <h4>Educational Value:</h4>
+                        <p>This set covers all NCERT and CBSE curriculum requirements for mathematics from Class 6 through Class 12. The tools are specifically designed to help students master geometric concepts while building fundamental measurement skills.</p>
+                    `,
+                    specifications: {
+                        "Series": "Heritage Collection",
+                        "Manufactured Since": "2006",
+                        "Compass Type": "Patented self-centering",
+                        "Scale Material": "Clear acrylic with etched markings",
+                        "Case": "Durable plastic case with hinge",
+                        "Warranty": "1 year against manufacturing defects",
+                        "Weight": "150 grams",
+                        "Dimensions": "20cm × 14cm × 2.8cm"
+                    },
+                    features: [
+                        "18-year proven reliability",
+                        "Patented self-centering compass",
+                        "Clear acrylic components",
+                        "NCERT curriculum compliant",
+                        "Durable hinge case",
+                        "Complete essential tools"
+                    ],
+                    gallery: ["study main.jpeg", "scale.png"],
+                    relatedProducts: ["p10", "p12", "p15"]
+                },
+                { 
+                    id: "p4", 
+                    name: "Complete Kit", 
+                    img: "kit.png", 
+                    desc: "Professional drawing set for engineers",
+                    category: "professional",
+                    price: "Custom Quote",
+                    tags: ["premium", "professional"],
+                    detailedDescription: `
+                        <p>The <strong>Complete Professional Kit</strong> is engineered for architects, engineers, and technical illustrators who demand uncompromising precision. This comprehensive set includes specialized tools not found in standard geometry boxes, making it ideal for complex technical drawing and design work.</p>
+                        
+                        <h4>Professional-Grade Tools:</h4>
+                        <p>Every instrument in this kit meets or exceeds industrial standards. The compass set includes multiple attachments for different drawing needs, while the specialized scales feature architectural and engineering scales. The precision dividers allow for accurate measurement transfer without marring the drawing surface.</p>
+                        
+                        <h4>Specialized Components:</h4>
+                        <ul>
+                            <li><strong>3-Arm Compass:</strong> With interchangeable pencil, pen, and needle attachments</li>
+                            <li><strong>Architect's Scale:</strong> 1:100, 1:200, 1:500 ratio scales</li>
+                            <li><strong>French Curves:</strong> Set of 3 for drawing complex curves</li>
+                            <li><strong>Beam Compass:</strong> For drawing large diameter circles</li>
+                            <li><strong>Precision Dividers:</strong> With micro-adjustment mechanism</li>
+                            <li><strong>Technical Pens:</strong> Set of 3 line widths (0.3, 0.5, 0.7mm)</li>
+                        </ul>
+                        
+                        <h4>Professional Applications:</h4>
+                        <p>• Architectural blueprints and floor plans<br>• Engineering schematics and diagrams<br>• Technical illustrations and patents<br>• Surveying and mapping<br>• Industrial design prototypes</p>
+                    `,
+                    specifications: {
+                        "Compass Range": "1mm to 300mm diameter",
+                        "Scale Types": "Architectural, engineering, metric",
+                        "Material": "Anodized aluminum, stainless steel",
+                        "Tolerance": "±0.005mm on critical components",
+                        "Case": "Shockproof aluminum case with foam insert",
+                        "Weight": "850 grams",
+                        "Dimensions": "35cm × 25cm × 6cm"
+                    },
+                    features: [
+                        "Interchangeable compass attachments",
+                        "Architectural scale ratios",
+                        "French curves set",
+                        "Beam compass for large circles",
+                        "Shockproof aluminum case",
+                        "Professional technical pens"
+                    ],
+                    gallery: ["kit.png", "ds.png", "set dr.png"],
+                    relatedProducts: ["p1", "p6", "p14"]
+                },
+                { 
+                    id: "p5", 
+                    name: "Gold Series", 
+                    img: "gold.png", 
+                    desc: "Limited edition gold-plated premium series",
+                    category: "premium",
+                    price: "Custom Quote",
+                    tags: ["premium", "limited"],
+                    detailedDescription: `
+                        <p>The <strong>Gold Series Limited Edition</strong> represents the ultimate expression of craftsmanship and precision in mathematical instruments. Each component features 24k gold electroplating over premium stainless steel, creating instruments that are both functional works of art and precision tools.</p>
+                        
+                        <h4>Luxury Craftsmanship:</h4>
+                        <p>Every Gold Series instrument undergoes 47 separate manufacturing steps, including hand-polishing and precision calibration. The gold plating not only provides a stunning appearance but also offers superior corrosion resistance. The velvet-lined presentation case adds to the luxury experience.</p>
+                        
+                        <h4>Exclusive Features:</h4>
+                        <ul>
+                            <li><strong>24k Gold Plating:</strong> Over surgical-grade stainless steel</li>
+                            <li><strong>Swiss Movement:</strong> Micro-precision pivot mechanism</li>
+                            <li><strong>Sapphire Bearing:</strong> In compass pivot for smooth operation</li>
+                            <li><strong>Carbon Fiber Scale:</strong> Ultra-light with exceptional rigidity</li>
+                            <li><strong>Limited Serial Number:</strong> Each set individually numbered</li>
+                            <li><strong>Certificate of Authenticity:</strong> With calibration certificate</li>
+                        </ul>
+                        
+                        <h4>Collector's Item:</h4>
+                        <p>Only 500 units of the Gold Series will ever be manufactured, making each set a collector's item. This series commemorates Bhaskar Educational Store's 18-year legacy of precision manufacturing.</p>
+                    `,
+                    specifications: {
+                        "Edition": "Limited to 500 units worldwide",
+                        "Plating": "24k gold electroplating",
+                        "Base Material": "Surgical-grade 316L stainless steel",
+                        "Pivot Mechanism": "Swiss micro-precision with sapphire bearing",
+                        "Scale Material": "Aerospace-grade carbon fiber",
+                        "Case": "Velvet-lined walnut presentation box",
+                        "Weight": "320 grams",
+                        "Dimensions": "25cm × 18cm × 4cm"
+                    },
+                    features: [
+                        "24k gold electroplating",
+                        "Limited edition serial number",
+                        "Swiss precision pivot mechanism",
+                        "Carbon fiber components",
+                        "Velvet-lined presentation case",
+                        "Certificate of authenticity"
+                    ],
+                    gallery: ["gold.png"],
+                    relatedProducts: ["p1", "p7", "p13"]
+                },
+                { 
+                    id: "p6", 
+                    name: "Maxima Pro", 
+                    img: "mamafa.jpeg", 
+                    desc: "Industrial precision tools for professionals",
+                    category: "professional",
+                    price: "Custom Quote",
+                    tags: ["professional", "bestseller"],
+                    detailedDescription: `
+                        <p>The <strong>Maxima Pro Series</strong> is engineered for industrial applications where precision is non-negotiable. These tools are built to withstand the rigors of daily professional use while maintaining micrometer-level accuracy across thousands of operations.</p>
+                        
+                        <h4>Industrial Durability:</h4>
+                        <p>Constructed from hardened tool steel with anti-corrosion coating, Maxima Pro instruments are designed for workshop environments. The compass features a cam-lock mechanism that prevents slippage during operation, while the reinforced scales can withstand significant mechanical stress.</p>
+                        
+                        <h4>Professional Applications:</h4>
+                        <ul>
+                            <li><strong>Machine Shop Use:</strong> For precision layout work</li>
+                            <li><strong>Quality Control:</strong> Measurement and inspection tools</li>
+                            <li><strong>Tool & Die Making:</strong> Precision marking and measurement</li>
+                            <li><strong>Prototyping:</strong> For engineering prototypes</li>
+                            <li><strong>Surveying:</strong> Field measurement applications</li>
+                        </ul>
+                        
+                        <h4>Technical Specifications:</h4>
+                        <p>All Maxima Pro tools are individually calibrated and include calibration certificates traceable to national standards. The compass features a 10:1 reduction gear for fine adjustment, allowing circles to be drawn with 0.01mm repeatability.</p>
+                    `,
+                    specifications: {
+                        "Material": "Hardened tool steel with anti-corrosion coating",
+                        "Calibration": "Individually calibrated with certificate",
+                        "Repeatability": "±0.01mm",
+                        "Compass Mechanism": "10:1 reduction gear with cam-lock",
+                        "Scale Accuracy": "±0.02mm over 30cm",
+                        "Warranty": "Lifetime against manufacturing defects",
+                        "Weight": "650 grams",
+                        "Dimensions": "30cm × 22cm × 5cm"
+                    },
+                    features: [
+                        "Hardened tool steel construction",
+                        "Individual calibration certificate",
+                        "10:1 reduction gear compass",
+                        "Cam-lock mechanism",
+                        "Anti-corrosion coating",
+                        "Industrial shock case"
+                    ],
+                    gallery: ["mamafa.jpeg", "ac par.png", "scale.png"],
+                    relatedProducts: ["p4", "p14", "p11"]
+                },
+                { 
+                    id: "p7", 
+                    name: "Deluxe Edition", 
+                    img: "DELUCE.jpeg", 
+                    desc: "Complete geometry box with premium case",
+                    category: "premium",
+                    price: "Custom Quote",
+                    tags: ["bestseller", "premium"],
+                    detailedDescription: `
+                        <p>The <strong>Deluxe Edition</strong> represents the perfect balance between premium quality and practical functionality. This comprehensive geometry set includes all essential tools organized in a rugged, impact-resistant case that protects instruments while keeping them readily accessible.</p>
+                        
+                        <h4>Premium Organization:</h4>
+                        <p>Every tool has its designated molded slot in the shock-absorbing foam insert, preventing damage during transport. The case features a double-locking mechanism and waterproof seals, making it ideal for school backpacks and field use.</p>
+                        
+                        <h4>Complete Tool Set:</h4>
+                        <ul>
+                            <li><strong>Precision Compass:</strong> With quick-adjust mechanism</li>
+                            <li><strong>15cm & 30cm Scales:</strong> Dual-scale with inch and metric</li>
+                            <li><strong>180° Protractor:</strong> With vernier scale for angle measurement</li>
+                            <li><strong>Set Squares:</strong> 45°, 60°, and 30°/60°/90° triangles</li>
+                            <li><strong>Divider & Ruler:</strong> For accurate measurement transfer</li>
+                            <li><strong>Accessory Kit:</strong> Includes pencils, eraser, sharpener, and lead refills</li>
+                        </ul>
+                        
+                        <h4>Educational Excellence:</h4>
+                        <p>Designed in consultation with mathematics educators, the Deluxe Edition includes learning aids like angle guides and geometric construction templates that help students master complex concepts.</p>
+                    `,
+                    specifications: {
+                        "Case Material": "Impact-resistant ABS with waterproof seals",
+                        "Locking Mechanism": "Double-lock with key provision",
+                        "Foam Insert": "Custom-molded shock-absorbing foam",
+                        "Compass Type": "Quick-adjust with locking nut",
+                        "Scale Types": "Dual-scale (metric/inch)",
+                        "Weight": "280 grams",
+                        "Dimensions": "24cm × 17cm × 3.5cm"
+                    },
+                    features: [
+                        "Impact-resistant waterproof case",
+                        "Molded foam insert organization",
+                        "Double-lock security",
+                        "Quick-adjust compass mechanism",
+                        "Dual-scale measurements",
+                        "Complete accessory kit"
+                    ],
+                    gallery: ["DELUCE.jpeg", "study main.jpeg"],
+                    relatedProducts: ["p1", "p3", "p12"]
+                },
+                { 
+                    id: "p8", 
+                    name: "Ben 10 Edition", 
+                    img: "ben main.jpeg", 
+                    desc: "Official character series for young fans",
+                    category: "kids",
+                    price: "Custom Quote",
+                    tags: ["new", "kids"],
+                    detailedDescription: `
+                        <p>The <strong>Ben 10 Edition</strong> brings mathematics to life with officially licensed character graphics! This exciting geometry set transforms learning into an adventure, featuring vibrant artwork from the popular Ben 10 series that captures children's imagination while they develop essential math skills.</p>
+                        
+                        <h4>Interactive Learning:</h4>
+                        <p>Each tool features different Ben 10 characters and transformations, making identification easy and fun. The included activity book contains geometry puzzles and challenges themed around Ben 10 adventures, encouraging practice through play.</p>
+                        
+                        <h4>Safety & Durability:</h4>
+                        <ul>
+                            <li><strong>Child-Safe Design:</strong> All edges rounded, no sharp corners</li>
+                            <li><strong>Non-Toxic Materials:</strong> BPA-free, phthalate-free plastics</li>
+                            <li><strong>Safety Compass:</strong> Retractable needle with locking mechanism</li>
+                            <li><strong>Durable Construction:</strong> Designed to withstand classroom use</li>
+                            <li><strong>Easy-Grip Tools:</strong> Ergonomically sized for small hands</li>
+                            <li><strong>Activity Book:</strong> Themed geometry puzzles and games</li>
+                        </ul>
+                        
+                        <h4>Educational Benefits:</h4>
+                        <p>• Develops fine motor skills through precise tool use<br>• Builds spatial reasoning and geometric understanding<br>• Encourages regular practice through engaging themes<br>• Supports NCERT mathematics curriculum for primary grades</p>
+                    `,
+                    specifications: {
+                        "Age Group": "5-10 years",
+                        "Licensing": "Official Ben 10 licensed product",
+                        "Safety Standards": "ASTM F963, EN71-3 compliant",
+                        "Materials": "BPA-free, phthalate-free plastics",
+                        "Included": "Activity book with 50+ puzzles",
+                        "Weight": "140 grams",
+                        "Dimensions": "19cm × 13cm × 2.5cm"
+                    },
+                    features: [
+                        "Official Ben 10 licensed graphics",
+                        "Child-safe rounded edges",
+                        "Retractable safety compass",
+                        "Included activity book",
+                        "Non-toxic materials",
+                        "Easy-grip ergonomic design"
+                    ],
+                    gallery: ["ben main.jpeg", "sonicx.jpeg"],
+                    relatedProducts: ["p2", "p9", "p11"]
+                },
+                { 
+                    id: "p9", 
+                    name: "Bhaskar Junior", 
+                    img: "junior3.jpeg", 
+                    desc: "Entry-level set for young beginners",
+                    category: "kids",
+                    price: "Custom Quote",
+                    tags: ["kids"],
+                    detailedDescription: `
+                        <p>The <strong>Bhaskar Junior</strong> is specially designed to introduce young children (ages 4-7) to the world of mathematics and measurement. With oversized, easy-to-grip tools and simplified designs, this set makes learning basic geometric concepts accessible and enjoyable for preschoolers and early elementary students.</p>
+                        
+                        <h4>Beginner-Friendly Design:</h4>
+                        <p>Every component in the Bhaskar Junior set is 30% larger than standard tools, making them easier for small hands to manipulate. The compass features an extra-large adjustment knob and clearly marked measurement guides that help children understand basic concepts of size and proportion.</p>
+                        
+                        <h4>Learning Progression:</h4>
+                        <ul>
+                            <li><strong>Step 1 - Familiarization:</strong> Colorful, engaging tools introduce basic shapes</li>
+                            <li><strong>Step 2 - Basic Skills:</strong> Practice drawing straight lines and simple curves</li>
+                            <li><strong>Step 3 - Measurement:</strong> Learn about length using the oversized scale</li>
+                            <li><strong>Step 4 - Geometry:</strong> Introduction to angles and geometric shapes</li>
+                            <li><strong>Step 5 - Creativity:</strong> Combine tools to create complex drawings</li>
+                        </ul>
+                        
+                        <h4>Parent & Teacher Approved:</h4>
+                        <p>Developed in consultation with early childhood educators, the Bhaskar Junior set aligns with preschool mathematics curriculum objectives and helps build foundational skills that prepare children for formal geometry education.</p>
+                    `,
+                    specifications: {
+                        "Age Group": "4-7 years",
+                        "Tool Size": "30% larger than standard",
+                        "Materials": "Food-grade safe plastics",
+                        "Compass": "Oversized with easy-grip knob",
+                        "Scale": "20cm with centimeter markings only",
+                        "Weight": "110 grams",
+                        "Dimensions": "22cm × 16cm × 3cm"
+                    },
+                    features: [
+                        "Oversized tools for small hands",
+                        "Bright, engaging colors",
+                        "Simplified measurement markings",
+                        "Extra-large adjustment knobs",
+                        "Durable, drop-resistant case",
+                        "Early learning aligned design"
+                    ],
+                    gallery: ["junior3.jpeg", "ben main.jpeg"],
+                    relatedProducts: ["p2", "p8", "p11"]
+                },
+                { 
+                    id: "p10", 
+                    name: "Dhoom Series", 
+                    img: "dhoom.png", 
+                    desc: "Fast-track geometry set for competitive exams",
+                    category: "standard",
+                    price: "Custom Quote",
+                    tags: ["bestseller"],
+                    detailedDescription: `
+                        <p>The <strong>Dhoom Series</strong> is engineered for speed and efficiency, making it the perfect choice for competitive exam preparation. With quick-adjust mechanisms and high-visibility markings, this set helps students solve geometry problems faster during time-constrained examinations like IIT-JEE, NEET, and other entrance tests.</p>
+                        
+                        <h4>Speed-Optimized Design:</h4>
+                        <p>Every tool in the Dhoom Series features our proprietary Quick-Slide technology that reduces adjustment time by 70%. The compass locks into position with a single click, and the scale includes rapid-measurement guides that eliminate counting individual markings.</p>
+                        
+                        <h4>Exam-Specific Features:</h4>
+                        <ul>
+                            <li><strong>Quick-Lock Compass:</strong> Single-click mechanism for instant circle drawing</li>
+                            <li><strong>Rapid-Read Scale:</strong> Color-coded every 5mm for fast measurement</li>
+                            <li><strong>Angle Finder:</strong> Built-in protractor with common angle markings</li>
+                            <li><strong>Formula Guide:</strong> Common geometric formulas printed on case interior</li>
+                            <li><strong>Time-Saver Tools:</strong> Parallel line ruler and ellipse template included</li>
+                            <li><strong>Anti-Slip Grip:</strong> Textured surfaces for confident handling under pressure</li>
+                        </ul>
+                        
+                        <h4>Competitive Advantage:</h4>
+                        <p>Field testing with IIT-JEE toppers demonstrated that the Dhoom Series can save an average of 3-5 minutes per mathematics paper through its efficiency features - potentially making the difference between selection and rejection in highly competitive exams.</p>
+                    `,
+                    specifications: {
+                        "Compass Adjustment": "Quick-Slide single-click mechanism",
+                        "Scale Design": "Color-coded rapid-read markings",
+                        "Special Features": "Formula guide, parallel line ruler",
+                        "Grip": "Anti-slip textured surfaces",
+                        "Case": "Slim profile for easy exam hall carrying",
+                        "Weight": "170 grams",
+                        "Dimensions": "21cm × 15cm × 1.8cm"
+                    },
+                    features: [
+                        "Quick-Slide single-click compass",
+                        "Color-coded rapid-read scale",
+                        "Built-in formula guide",
+                        "Parallel line ruler included",
+                        "Anti-slip textured grip",
+                        "Slim exam-hall friendly case"
+                    ],
+                    gallery: ["dhoom.png", "study main.jpeg"],
+                    relatedProducts: ["p3", "p12", "p15"]
+                }
+            ],
+            
+            categories: [
+                { id: "all", name: "All Products", icon: "fa-grid-2" },
+                { id: "premium", name: "Premium", icon: "fa-crown" },
+                { id: "kids", name: "Kids Edition", icon: "fa-child" },
+                { id: "professional", name: "Professional", icon: "fa-ruler-combined" },
+                { id: "standard", name: "Standard", icon: "fa-box" }
+            ]
+        };
+
+        // STATE MANAGEMENT
+        let cart = JSON.parse(localStorage.getItem('bes_cart')) || [];
+        let currentPage = 'home';
+        let currentFilter = 'all';
+        let currentProduct = null;
+        let quantity = 1;
+
+        // INITIALIZATION
+        window.onload = function() {
+            // Hide splash screen
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 800);
+            }, 1500);
+
+            // Initialize counters
+            animateCounter('years-counter', 18, 2000);
+            animateCounter('schools-counter', 500, 2500);
+
+            // Load content
+            loadFeaturedProducts();
+            loadAllProducts();
+            loadCategoryFilters();
+
+            // Update cart
+            updateCartUI();
+
+            // Set active nav
+            setActiveNav('home');
+
+            // Initialize event listeners
+            initEventListeners();
+
+            // Update product count
+            document.getElementById('product-count').textContent = PRODUCT_DATA.products.length;
+        };
+
+        // ANIMATE COUNTERS
+        function animateCounter(elementId, target, duration) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // NAVIGATION
+        function navigateTo(pageId) {
+            // Hide product detail page if open
+            document.getElementById('product-detail-page').classList.remove('active');
+            
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                currentPage = pageId;
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Update navigation
+                setActiveNav(pageId);
+                
+                // Close search if open
+                closeSearch();
+            }
+        }
+
+        function setActiveNav(pageId) {
+            // Remove active class from all nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('nav-active');
+            });
+            
+            // Add active class to current nav button
+            const navBtn = document.getElementById(`nav-${pageId}`);
+            if (navBtn) {
+                navBtn.classList.add('nav-active');
+            }
+        }
+
+        // PRODUCT DETAIL VIEW
+        function viewProduct(productId) {
+            const product = PRODUCT_DATA.products.find(p => p.id === productId);
+            if (!product) return;
+            
+            currentProduct = product;
+            quantity = 1;
+            
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show product detail page
+            const detailPage = document.getElementById('product-detail-page');
+            detailPage.classList.add('active');
+            detailPage.innerHTML = generateProductDetailHTML(product);
+            
+            // Initialize product tabs
+            initProductTabs();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeProductDetail() {
+            document.getElementById('product-detail-page').classList.remove('active');
+            navigateTo(currentPage);
+        }
+
+        function generateProductDetailHTML(product) {
+            const relatedProducts = product.relatedProducts 
+                ? PRODUCT_DATA.products.filter(p => product.relatedProducts.includes(p.id))
+                : PRODUCT_DATA.products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 3);
+            
+            return `
+                <div class="bg-white min-h-screen">
+                    <!-- Product Header -->
+                    <div class="glass-header px-4 py-4 flex items-center justify-between sticky top-0 z-40">
+                        <button onclick="closeProductDetail()" class="w-10 h-10 rounded-full bg-white/80 border border-slate-200 flex items-center justify-center">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <h2 class="font-bold text-slate-900">Product Details</h2>
+                        <button onclick="shareProduct('${product.id}', '${product.name}')" class="w-10 h-10 rounded-full bg-white/80 border border-slate-200 flex items-center justify-center">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="p-4 animate-zoom-in">
+                        <!-- Product Gallery -->
+                        <div class="product-detail-card">
+                            <div class="relative">
+                                <div class="img-3d-container h-64 mb-4">
+                                    <img src="${product.img}" alt="${product.name}" class="w-full h-full object-contain">
+                                </div>
+                                ${product.tags.includes('bestseller') ? '<span class="product-label label-bestseller">Best Seller</span>' : ''}
+                                ${product.tags.includes('new') ? '<span class="product-label label-new">New</span>' : ''}
+                                ${product.tags.includes('premium') ? '<span class="product-label label-premium">Premium</span>' : ''}
+                                ${product.tags.includes('limited') ? '<span class="product-label label-limited">Limited Edition</span>' : ''}
+                            </div>
+                            
+                            <h1 class="text-2xl font-black text-slate-900 mb-2">${product.name}</h1>
+                            <p class="text-slate-600 mb-4">${product.desc}</p>
+                            
+                            <div class="flex items-center justify-between mb-6">
+                                <div>
+                                    <span class="text-blue-600 font-bold text-lg">${product.price}</span>
+                                    <div class="warranty-badge text-sm mt-2">
+                                        <i class="fa-solid fa-shield-check"></i>
+                                        1 Year Warranty
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-star text-amber-400"></i>
+                                    <span class="font-bold">4.9</span>
+                                    <span class="text-slate-500 text-sm">(150+ reviews)</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Gallery Images -->
+                            ${product.gallery && product.gallery.length > 1 ? `
+                                <div class="product-gallery">
+                                    ${product.gallery.map((img, index) => index > 0 ? `
+                                        <div class="gallery-item">
+                                            <img src="${img}" alt="${product.name} - View ${index + 1}">
+                                        </div>
+                                    ` : '').join('')}
+                                </div>
+                            ` : ''}
+                            
+                            <!-- Product Tabs -->
+                            <div class="product-tabs" id="product-tabs">
+                                <button class="tab-btn active" onclick="switchTab('description')">Description</button>
+                                <button class="tab-btn" onclick="switchTab('specifications')">Specifications</button>
+                                <button class="tab-btn" onclick="switchTab('features')">Features</button>
+                            </div>
+                            
+                            <!-- Tab Contents -->
+                            <div class="tab-content active" id="description-tab">
+                                <div class="prose max-w-none">
+                                    ${product.detailedDescription}
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content" id="specifications-tab">
+                                <div class="specs-grid">
+                                    ${Object.entries(product.specifications || {}).map(([key, value]) => `
+                                        <div class="spec-item">
+                                            <div class="text-sm text-slate-500">${key}</div>
+                                            <div class="font-bold">${value}</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content" id="features-tab">
+                                <ul class="features-list">
+                                    ${(product.features || []).map(feature => `
+                                        <li>
+                                            <i class="fa-solid fa-check-circle"></i>
+                                            <span>${feature}</span>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                            
+                            <!-- Delivery Info -->
+                            <div class="delivery-info">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i class="fa-solid fa-truck-fast text-amber-600"></i>
+                                    <h4 class="font-bold">Delivery Information</h4>
+                                </div>
+                                <p class="text-sm">Free shipping across India • Delivery in 3-5 business days • Express delivery available • Bulk order discounts</p>
+                            </div>
+                            
+                            <!-- Quantity Selector -->
+                            <div class="quantity-selector">
+                                <span class="font-bold">Quantity:</span>
+                                <div class="flex items-center gap-3">
+                                    <button class="qty-btn" onclick="changeQuantity(-1)">-</button>
+                                    <input type="number" id="product-quantity" class="qty-input" value="${quantity}" min="1" max="100" onchange="updateQuantity(this.value)">
+                                    <button class="qty-btn" onclick="changeQuantity(1)">+</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="space-y-3 mt-6">
+                                <button onclick="addToCart('${product.id}', '${product.name}', quantity)" 
+                                        class="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl font-bold hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    Add to Inquiry List (${quantity})
+                                </button>
+                                
+                                <button onclick="openWhatsApp('product_detail_${product.id}')" 
+                                        class="w-full py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl font-bold hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    Get Instant Quote
+                                </button>
+                                
+                                <button onclick="openModal('custom-quote-modal')" 
+                                        class="w-full py-3 border-2 border-blue-600 text-blue-600 rounded-2xl font-bold hover:bg-blue-50 transition-colors">
+                                    Request Custom Quote
+                                </button>
+                            </div>
+                            
+                            <!-- Share Buttons -->
+                            <div class="share-buttons justify-center mt-6">
+                                <button onclick="shareOnWhatsApp('${product.id}', '${product.name}')" class="share-btn whatsapp-share">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </button>
+                                <button onclick="shareOnFacebook('${product.id}', '${product.name}')" class="share-btn facebook-share">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </button>
+                                <button onclick="shareOnTwitter('${product.id}', '${product.name}')" class="share-btn twitter-share">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </button>
+                                <button onclick="shareOnTelegram('${product.id}', '${product.name}')" class="share-btn telegram-share">
+                                    <i class="fa-brands fa-telegram"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Related Products -->
+                            ${relatedProducts.length > 0 ? `
+                                <div class="mt-8">
+                                    <h3 class="text-xl font-black text-slate-900 mb-4">Related Products</h3>
+                                    <div class="related-products">
+                                        ${relatedProducts.map(related => `
+                                            <div class="product-card" onclick="viewProduct('${related.id}')">
+                                                <div class="img-3d-container h-32">
+                                                    <img src="${related.img}" alt="${related.name}" class="w-full h-full object-contain p-2">
+                                                </div>
+                                                <div class="p-3">
+                                                    <h4 class="font-bold text-sm">${related.name}</h4>
+                                                    <button onclick="event.stopPropagation(); addToCart('${related.id}', '${related.name}')" 
+                                                            class="w-full mt-2 py-2 bg-blue-600 text-white rounded-lg text-xs font-bold">
+                                                        Add to Inquiry
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function initProductTabs() {
+            // Tab switching will be handled by switchTab function
+        }
+
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+        }
+
+        function changeQuantity(change) {
+            quantity = Math.max(1, quantity + change);
+            document.getElementById('product-quantity').value = quantity;
+        }
+
+        function updateQuantity(value) {
+            quantity = Math.max(1, parseInt(value) || 1);
+        }
+
+        // CONTENT LOADING FUNCTIONS
+        function loadFeaturedProducts() {
+            const container = document.getElementById('featured-products');
+            if (!container) return;
+            
+            const featured = PRODUCT_DATA.products.slice(0, 3);
+            container.innerHTML = featured.map(product => `
+                <div class="product-card" onclick="viewProduct('${product.id}')">
+                    <div class="relative">
+                        <div class="img-3d-container">
+                            <img src="${product.img}" alt="${product.name}" class="w-full h-full object-contain p-4">
+                        </div>
+                        ${product.tags.includes('bestseller') ? '<span class="product-label label-bestseller">Best Seller</span>' : ''}
+                        ${product.tags.includes('new') ? '<span class="product-label label-new">New</span>' : ''}
+                        ${product.tags.includes('premium') ? '<span class="product-label label-premium">Premium</span>' : ''}
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">${product.name}</h3>
+                        <p class="text-slate-600 text-sm mb-4">${product.desc}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold">${product.price}</span>
+                            <button onclick="event.stopPropagation(); addToCart('${product.id}', '${product.name}')" 
+                                    class="px-4 py-2 bg-blue-600 text-white rounded-xl font-bold text-sm hover:bg-blue-700 transition-colors">
+                                Add to Inquiry
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadAllProducts() {
+            const container = document.getElementById('all-products');
+            if (!container) return;
+            
+            const filteredProducts = currentFilter === 'all' 
+                ? PRODUCT_DATA.products
+                : PRODUCT_DATA.products.filter(p => p.category === currentFilter);
+            
+            container.innerHTML = filteredProducts.map(product => `
+                <div class="product-card" onclick="viewProduct('${product.id}')">
+                    <div class="img-3d-container">
+                        <img src="${product.img}" alt="${product.name}" class="w-full h-full object-contain p-4">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">${product.name}</h3>
+                        <p class="text-slate-600 text-xs mb-3">${product.desc}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold text-sm">Custom Quote</span>
+                            <button onclick="event.stopPropagation(); addToCart('${product.id}', '${product.name}')" 
+                                    class="px-3 py-1.5 bg-blue-600 text-white rounded-lg font-bold text-xs hover:bg-blue-700 transition-colors">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadCategoryFilters() {
+            const container = document.getElementById('category-filters');
+            if (!container) return;
+            
+            container.innerHTML = PRODUCT_DATA.categories.map(category => `
+                <button onclick="filterProducts('${category.id}')" 
+                        class="px-4 py-2 rounded-full border-2 ${currentFilter === category.id ? 'bg-blue-600 border-blue-600 text-white' : 'border-slate-300 text-slate-700'} font-bold text-sm transition-all duration-300">
+                    <i class="fa-solid ${category.icon} mr-2"></i>
+                    ${category.name}
+                </button>
+            `).join('');
+        }
+
+        function filterProducts(categoryId) {
+            currentFilter = categoryId;
+            loadAllProducts();
+            loadCategoryFilters();
+        }
+
+        // CART FUNCTIONS
+        function addToCart(productId, productName, qty = 1) {
+            const actualQty = qty || quantity || 1;
+            
+            // Check if product exists
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity = (existingItem.quantity || 1) + actualQty;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    quantity: actualQty,
+                    addedAt: new Date().toISOString()
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('bes_cart', JSON.stringify(cart));
+            
+            // Update UI
+            updateCartUI();
+            
+            // Show toast
+            showToast(`${productName} (${actualQty}) added to inquiry list`);
+            
+            // Reset quantity
+            quantity = 1;
+        }
+
+        function updateCartUI() {
+            // Update badge
+            const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            document.getElementById('header-cart-badge').textContent = totalItems;
+            document.getElementById('cart-count').textContent = totalItems;
+            
+            // Update cart modal
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyCart = document.getElementById('empty-cart');
+            
+            if (cart.length === 0) {
+                emptyCart.style.display = 'block';
+                cartItemsContainer.innerHTML = '';
+            } else {
+                emptyCart.style.display = 'none';
+                cartItemsContainer.innerHTML = cart.map((item, index) => `
+                    <div class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold">${item.name}</h4>
+                            <p class="text-sm text-slate-500">Quantity: ${item.quantity || 1}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="updateCartQuantity(${index}, -1)" class="w-8 h-8 rounded-lg border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-slate-100">
+                                <i class="fa-solid fa-minus text-xs"></i>
+                            </button>
+                            <span class="font-bold">${item.quantity || 1}</span>
+                            <button onclick="updateCartQuantity(${index}, 1)" class="w-8 h-8 rounded-lg border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-slate-100">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                            </button>
+                            <button onclick="removeFromCart(${index})" class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-red-600 hover:bg-red-100 ml-2">
+                                <i class="fa-solid fa-trash text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function updateCartQuantity(index, change) {
+            if (!cart[index]) return;
+            
+            cart[index].quantity = (cart[index].quantity || 1) + change;
+            if (cart[index].quantity < 1) {
+                cart[index].quantity = 1;
+            }
+            localStorage.setItem('bes_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            const productName = cart[index].name;
+            cart.splice(index, 1);
+            localStorage.setItem('bes_cart', JSON.stringify(cart));
+            updateCartUI();
+            showToast(`${productName} removed from inquiry list`);
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('bes_cart', JSON.stringify(cart));
+            updateCartUI();
+            showToast('Inquiry list cleared');
+        }
+
+        function sendInquiryViaWhatsApp() {
+            if (cart.length === 0) {
+                showToast('Add products to inquiry list first');
+                return;
+            }
+            
+            let message = "Hello Bhaskar Educational Store,\n\nI'm interested in the following products:\n\n";
+            cart.forEach(item => {
+                message += `• ${item.name} (Quantity: ${item.quantity || 1})\n`;
+            });
+            message += "\nPlease provide pricing and availability for these items.";
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/918882990486?text=${encodedMessage}`, '_blank');
+            
+            closeModal('cart-modal');
+        }
+
+        // MODAL FUNCTIONS
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function closeAllModals() {
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+
+        // TOAST NOTIFICATION
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // WHATSAPP FUNCTION
+        function openWhatsApp(context) {
+            let message = "Hello Bhaskar Educational Store! ";
+            if (context === 'instant_quote') {
+                message += "I'd like to get an instant quote for your mathematical instruments.";
+            } else if (context === 'hero_section') {
+                message += "I'm interested in your premium mathematical instruments.";
+            } else if (context === 'contact_page') {
+                message += "I have an inquiry. Please contact me.";
+            } else if (context.startsWith('product_detail_')) {
+                const productId = context.replace('product_detail_', '');
+                const product = PRODUCT_DATA.products.find(p => p.id === productId);
+                message += `I'm interested in the ${product.name}. Please provide pricing and details.`;
+            } else {
+                message += "I have an inquiry about your products.";
+            }
+            
+            window.open(`https://wa.me/918882990486?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // SHARE FUNCTIONS
+        function shareProduct(productId, productName) {
+            const url = window.location.href.split('#')[0] + `?product=${productId}`;
+            const text = `Check out ${productName} at Bhaskar Educational Store - Premium Mathematical Instruments`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: productName,
+                    text: text,
+                    url: url
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                showToast('Share link copied to clipboard');
+                navigator.clipboard.writeText(`${text}\n${url}`);
+            }
+        }
+
+        function shareOnWhatsApp(productId, productName) {
+            const url = window.location.href.split('#')[0] + `?product=${productId}`;
+            const text = `Check out ${productName} at Bhaskar Educational Store - Premium Mathematical Instruments\n${url}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function shareOnFacebook(productId, productName) {
+            const url = window.location.href.split('#')[0] + `?product=${productId}`;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnTwitter(productId, productName) {
+            const url = window.location.href.split('#')[0] + `?product=${productId}`;
+            const text = `Check out ${productName} at Bhaskar Educational Store`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnTelegram(productId, productName) {
+            const url = window.location.href.split('#')[0] + `?product=${productId}`;
+            const text = `Check out ${productName} at Bhaskar Educational Store`;
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // FORM SUBMISSIONS
+        function submitSchoolRegistration() {
+            const schoolName = document.getElementById('school-name').value;
+            const city = document.getElementById('school-city').value;
+            const phone = document.getElementById('school-phone').value;
+            const email = document.getElementById('school-email').value;
+            const strength = document.getElementById('student-strength').value;
+            
+            if (!schoolName || !city || !phone) {
+                showToast('Please fill required fields');
+                return;
+            }
+            
+            let message = `New School Registration:\n\n`;
+            message += `School: ${schoolName}\n`;
+            message += `City: ${city}\n`;
+            message += `Phone: ${phone}\n`;
+            message += `Email: ${email || 'Not provided'}\n`;
+            message += `Student Strength: ${strength || 'Not specified'}\n\n`;
+            message += `Please contact with partnership details.`;
+            
+            window.open(`https://wa.me/918882990486?text=${encodeURIComponent(message)}`, '_blank');
+            showToast('School registration submitted!');
+            closeModal('school-registration-modal');
+            
+            // Clear form
+            document.getElementById('school-name').value = '';
+            document.getElementById('school-city').value = '';
+            document.getElementById('school-phone').value = '';
+            document.getElementById('school-email').value = '';
+            document.getElementById('student-strength').value = '';
+        }
+
+        function submitCustomQuote() {
+            const requirements = document.getElementById('custom-requirements').value;
+            const name = document.getElementById('custom-name').value;
+            const phone = document.getElementById('custom-phone').value;
+            const email = document.getElementById('custom-email').value;
+            
+            if (!requirements || !name || !phone) {
+                showToast('Please fill required fields');
+                return;
+            }
+            
+            let message = `Custom Quote Request:\n\n`;
+            message += `Name: ${name}\n`;
+            message += `Phone: ${phone}\n`;
+            message += `Email: ${email || 'Not provided'}\n\n`;
+            message += `Requirements:\n${requirements}\n\n`;
+            message += `Please provide pricing and options.`;
+            
+            window.open(`https://wa.me/918882990486?text=${encodeURIComponent(message)}`, '_blank');
+            showToast('Custom quote request sent!');
+            closeModal('custom-quote-modal');
+            
+            // Clear form
+            document.getElementById('custom-requirements').value = '';
+            document.getElementById('custom-name').value = '';
+            document.getElementById('custom-phone').value = '';
+            document.getElementById('custom-email').value = '';
+        }
+
+        // UTILITY FUNCTIONS
+        function initEventListeners() {
+            // Search toggle
+            document.getElementById('search-toggle').addEventListener('click', function() {
+                const searchBar = document.getElementById('search-bar');
+                searchBar.style.display = searchBar.style.display === 'block' ? 'none' : 'block';
+                
+                if (searchBar.style.display === 'block') {
+                    document.getElementById('search-input').focus();
+                }
+            });
+
+            // Search input
+            document.getElementById('search-input').addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
+                const results = document.getElementById('search-results');
+                
+                if (query.length < 2) {
+                    results.style.display = 'none';
+                    return;
+                }
+                
+                // Filter products
+                const filteredProducts = PRODUCT_DATA.products
+                    .filter(product => 
+                        product.name.toLowerCase().includes(query) || 
+                        product.desc?.toLowerCase().includes(query) ||
+                        product.category?.toLowerCase().includes(query)
+                    )
+                    .slice(0, 8);
+                
+                if (filteredProducts.length > 0) {
+                    results.innerHTML = filteredProducts.map(product => `
+                        <div class="p-4 border-b hover:bg-slate-50 cursor-pointer flex items-center gap-4" 
+                             onclick="viewProduct('${product.id}'); closeSearch();">
+                            <div class="w-12 h-12 rounded-lg bg-slate-100 overflow-hidden flex-shrink-0">
+                                <img src="${product.img}" alt="${product.name}" class="w-full h-full object-contain p-1">
+                            </div>
+                            <div>
+                                <div class="font-bold">${product.name}</div>
+                                <div class="text-sm text-slate-500">${product.desc?.substring(0, 40)}...</div>
+                                <div class="text-xs text-blue-600 font-bold mt-1">${product.category}</div>
+                            </div>
+                        </div>
+                    `).join('');
+                    results.style.display = 'block';
+                } else {
+                    results.innerHTML = '<div class="p-4 text-slate-500 text-center">No products found</div>';
+                    results.style.display = 'block';
+                }
+            });
+
+            // Close search when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('#search-bar') && !e.target.closest('#search-toggle')) {
+                    closeSearch();
+                }
+            });
+
+            // Back to top button visibility
+            window.addEventListener('scroll', function() {
+                const backToTop = document.querySelector('.back-to-top-enhanced');
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            // Close modals on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeAllModals();
+                    closeSearch();
+                }
+            });
+
+            // PDF download
+            function downloadPDF() {
+                showToast('PDF catalog download started');
+                // In production, this would trigger actual PDF download
+            }
+        }
+
+        function closeSearch() {
+            document.getElementById('search-bar').style.display = 'none';
+            const results = document.getElementById('search-results');
+            if (results) {
+                results.style.display = 'none';
+                results.innerHTML = '';
+            }
+            document.getElementById('search-input').value = '';
+        }
+
+        // SCROLL TO TOP
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
